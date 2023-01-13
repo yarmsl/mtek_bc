@@ -8,12 +8,13 @@ export const theme = (darkMode: boolean): Theme =>
           xs: 0,
           sm: 600,
           md: 1024,
-          lg: 1440,
+          lg: 1500,
           xl: 1900,
         },
       },
       typography: {
         fontFamily: [
+          'Formular',
           '-apple-system',
           'BlinkMacSystemFont',
           '"Segoe UI"',
@@ -67,7 +68,7 @@ export const theme = (darkMode: boolean): Theme =>
         : {
             mode: 'light',
             common: {
-              black: 'rgba(0,0,0,.6)',
+              black: '#000',
               white: '#fff',
             },
             success: {
@@ -77,8 +78,8 @@ export const theme = (darkMode: boolean): Theme =>
               main: '#d5265b',
             },
             primary: {
-              dark: '#1d1e33',
-              main: '#2c3e50',
+              dark: '#28766A',
+              main: '#08A991',
               light: '#d8e5f0',
               contrastText: '#fff',
             },
@@ -93,7 +94,7 @@ export const theme = (darkMode: boolean): Theme =>
               default: '#f0f4f9',
             },
             text: {
-              primary: 'rgba(0,0,0,.6)',
+              primary: '#000',
               secondary: '#456c91',
             },
           },
@@ -128,6 +129,25 @@ export const theme = (darkMode: boolean): Theme =>
         '0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px',
       ],
       components: {
+        MuiTypography: {
+          styleOverrides: {
+            body2: {
+              fontSize: '12px',
+              fontWeight: 400,
+            },
+          },
+        },
+        MuiButton: {
+          styleOverrides: {
+            contained: {
+              borderRadius: 0,
+              fontWeight: 300,
+            },
+            sizeLarge: {
+              fontSize: '18px',
+            },
+          },
+        },
         MuiInputBase: {
           styleOverrides: {
             inputSizeSmall: {
