@@ -7,7 +7,6 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "prebuild": "rimraf dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
