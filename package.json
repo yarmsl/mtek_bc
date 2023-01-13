@@ -9,6 +9,7 @@
     "dev": "concurrently -p '[{name}]' -c 'yellow.bold,green.bold' -n 'back,ui' 'cd ./back && yarn start:dev' 'cd ./ui && yarn dev'"
   },
   "devDependencies": {
-    "concurrently": "^7.2.2"
+    "concurrently": "^7.2.2",
+    "rimraf": "^4.0.4"
   }
 }
