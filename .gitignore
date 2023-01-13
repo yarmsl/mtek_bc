@@ -33,3 +33,7 @@ node_modules
 # IDE - VSCode
 .vscode/*
 
+# Others
+/ui/data/certbot
+/ui/data/nginx/log
+

@@ -1,4 +1,4 @@
 export const initialState: UIState = {
-  darkMode: true,
+  darkMode: false,
   isBurgerMenuOpen: false,
 };
