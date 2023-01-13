@@ -1,6 +1,5 @@
 
 FROM node:16-alpine AS builder
-ENV NODE_ENV production
 WORKDIR /web
 ADD package.json package.json
 ADD yarn.lock yarn.lock
