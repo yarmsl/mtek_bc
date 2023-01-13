@@ -1,0 +1,13 @@
+{
+  "name": "fullstack",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "install:all": "yarn install && cd ./back && yarn install && cd ../ui && yarn install",
+    "dev": "concurrently -p '[{name}]' -c 'yellow.bold,green.bold' -n 'back,ui' 'cd ./back && yarn start:dev' 'cd ./ui && yarn dev'"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
