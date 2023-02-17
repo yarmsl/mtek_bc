@@ -1,0 +1,57 @@
+.common {
+  border-radius: var(--border-radius);
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.common:hover {
+  cursor: pointer;
+  transform: translateY(-4px);
+}
+
+.common:disabled {
+  cursor: not-allowed;
+}
+
+.text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outlined {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.small {
+  padding: 12px;
+}
+
+.large {
+  padding: 24px;
+}
+
+.smallOutlined {
+  padding: 11px;
+}
+
+.mediumOutlined {
+  padding: 13px;
+}
+
+.largeOutlined {
+  padding: 23px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.iconAside {
+  justify-content: space-between;
+}
