@@ -1,0 +1,43 @@
+@font-face {
+  font-family: Formular;
+  src:
+    local("Formular-Light"),
+    url("/assets/fonts/Formular-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Formular;
+  src:
+    local("Formular"),
+    url("/assets/fonts/Formular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Formular;
+  src:
+    local("Formular-Medium"),
+    url("/assets/fonts/Formular-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Formular;
+  src:
+    local("Formular-Bold"),
+    url("/assets/fonts/Formular-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Formular;
+  src:
+    local("Formular-Black"),
+    url("/assets/fonts/Formular-Black.woff2") format("woff2");
+  font-weight: 900;
+}
+
+* {
+  font-family: Formular, sans-serif;
+}
