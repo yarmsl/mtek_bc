@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from '~/pages/Home';
 import NotFound from '~/pages/NotFound';
@@ -7,13 +7,15 @@ import MainLayout from '~/ui-kit/templates/MainLayout';
 
 const Router: FC = () => {
   return (
-    <Routes>
-      <Route element={<MainLayout />} path='*'>
-        <Route element={<Home />} path='' />
+    <BrowserRouter basename='/control_panel'>
+      <Routes>
+        <Route element={<MainLayout />} path='*'>
+          <Route element={<Home />} path='' />
 
-        <Route element={<NotFound />} path='*' />
-      </Route>
-    </Routes>
+          <Route element={<NotFound />} path='*' />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

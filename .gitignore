@@ -15,7 +15,8 @@ node_modules
 /back/lerna-debug.log*
 
 node_modules
-
+dist
+/control-panel-ui/dist
 # OS
 .DS_Store
 

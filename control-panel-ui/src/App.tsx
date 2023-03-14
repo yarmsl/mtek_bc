@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { CssBaseline, ThemeProvider, StyledEngineProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
@@ -23,9 +22,9 @@ function App(): JSX.Element {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
+
+        <Router />
+
         <SnackStack />
         <ModalStack />
       </ThemeProvider>
