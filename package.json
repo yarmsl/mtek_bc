@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "install:all": "yarn install && cd ./back && yarn install && cd ../lk-ui && yarn install && cd ../front-ui && yarn install",
-    "start:db": "cd ./back && yarn start:db",
-    "dev": "concurrently -p '[{name}]' -c 'bgGreen,bgCyan,bgMagenta' -n 'back,lk-ui,front-ui' 'cd ./back && yarn start:dev' 'cd ./lk-ui && yarn dev' 'cd ./front-ui && yarn dev'"
+    "install:all": "yarn install && cd ./static-server && yarn install && cd ../control-panel-ui && yarn install && cd ../mtek-ui && yarn install",
+    "start:db": "cd ./static-server && yarn start:db",
+    "dev": "concurrently -p '[{name}]' -c 'bgGreen,bgCyan,bgMagenta' -n 'static-server,control-panel-ui,mtek-ui' 'cd ./static-server && yarn start:dev' 'cd ./control-panel-ui && yarn dev' 'cd ./mtek-ui && yarn dev'"
   },
   "devDependencies": {
     "concurrently": "^7.2.2",

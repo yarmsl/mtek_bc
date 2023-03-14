@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  border-style: solid;
+  border-width: 1px;
+  background-color: transparent;
+}
+
+.focus {
+  outline: 1px solid rgb(var(--primary));
+  border-color: rgb(var(--primary));
+}
+
+.root {
+  width: 100%;
+  outline: unset;
+  border: unset;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.small {
+  font-size: 12px;
+  font-weight: 400;
+  padding: 12px 14px;
+}
+
+.medium {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 15px 20px;
+}
+
+.large {
+  font-size: 20px;
+  font-weight: 400;
+  padding: 18px 24px;
+}
+
+.icon {
+  position: static;
+}
