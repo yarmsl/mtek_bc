@@ -1,0 +1,69 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "pgdb"
+      POSTGRES_USER: "pgdbuser"
+      POSTGRES_PASSWORD: "pass4pgdbuser"
+    ports:
+      - "5432:5432"
+    networks:
+      - mtek_network
+  app:
+    volumes:
+      - mtek_volume:/app/uploads
+    build:
+      context: ./server
+    restart: always
+    ports:
+      - 5000:5000
+    networks:
+      - mtek_network
+  ui:
+    build:
+      context: ./mtek-ui
+    volumes:
+      - mtek_uibuild:/ui/.next
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - mtek_network
+  cp:
+    build:
+      context: ./control-panel-ui
+    volumes:
+      - mtek_cpbuild:/cp/dist
+  nginx:
+    build:
+      context: ./nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+      - ./nginx/log:/var/log/nginx
+      - mtek_uibuild:/usr/share/nginx/html/ui
+      - mtek_cpbuild:/usr/share/nginx/html/cp
+    ports:
+      - "80:80"
+      - "443:443"
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
+    networks:
+      - mtek_network
+  certbot:
+    image: certbot/certbot:v0.36.0
+    restart: unless-stopped
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+volumes:
+  mtek_volume:
+  mtek_uibuild:
+  mtek_cpbuild:
+networks:
+  mtek_network:
+    driver: bridge

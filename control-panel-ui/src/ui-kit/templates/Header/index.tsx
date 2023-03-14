@@ -23,7 +23,7 @@ const Header: FC = () => {
             border: { xs: 'unset', md: '1px solid #28766A' },
           }}
         >
-          Сайт находится в разработке!
+          Здесь будет ЛК
         </Typography>
         {!isPortable && <ConnectingPeople />}
       </Container>
