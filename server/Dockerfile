@@ -7,4 +7,4 @@ ADD . .
 RUN yarn build
 VOLUME ["/app/uploads"]
 CMD ["yarn", "start"]
-EXPOSE 5000
+EXPOSE 8080
