@@ -1,2 +1,2 @@
-export * from './UI.reducer';
+export * from './UI.slice';
 export * from './UI.selectors';

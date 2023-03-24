@@ -5,6 +5,6 @@ ADD yarn.lock yarn.lock
 RUN yarn install
 ADD . .
 RUN yarn build
-VOLUME ["/app/uploads"]
+VOLUME ["/app/upload"]
 CMD ["yarn", "start"]
 EXPOSE 8080

@@ -13,7 +13,7 @@ services:
       - mtek_network
   app:
     volumes:
-      - mtek_volume:/app/uploads
+      - mtek_volume:/app/upload
     build:
       context: ./server
     restart: always

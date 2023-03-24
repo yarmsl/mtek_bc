@@ -14,7 +14,6 @@ export const theme = (darkMode: boolean): Theme =>
       },
       typography: {
         fontFamily: [
-          'Formular',
           '-apple-system',
           'BlinkMacSystemFont',
           '"Segoe UI"',
@@ -137,17 +136,7 @@ export const theme = (darkMode: boolean): Theme =>
             },
           },
         },
-        MuiButton: {
-          styleOverrides: {
-            contained: {
-              borderRadius: 0,
-              fontWeight: 300,
-            },
-            sizeLarge: {
-              fontSize: '18px',
-            },
-          },
-        },
+
         MuiInputBase: {
           styleOverrides: {
             inputSizeSmall: {
