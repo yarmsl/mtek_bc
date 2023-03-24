@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Location, useLocation, useNavigate } from 'react-router-dom';
 
 interface useRouterOutputInterface {
   /**
@@ -11,10 +11,16 @@ interface useRouterOutputInterface {
    * @param pathname - path to page
    */
   goTo: (pathname: string) => void;
+  /**
+   * Navigate to pathname callback
+   * @param pathname - path to page
+   */
+  goToCb: (pathname: string) => () => void;
   /** Navigate to home page */
   goHome: () => void;
   /** Navigate to previous page */
   goBack: () => void;
+  loc: Location;
 }
 
 export const useRouter = (): useRouterOutputInterface => {
@@ -23,12 +29,15 @@ export const useRouter = (): useRouterOutputInterface => {
 
   const canGoBack = useMemo(() => loc.pathname !== '/', [loc.pathname]);
   const goTo = useCallback((pathname: string) => navTo(pathname), [navTo]);
+  const goToCb = useCallback((pathname: string) => () => navTo(pathname), [navTo]);
   const goHome = useCallback(() => navTo('/'), [navTo]);
   const goBack = useCallback(() => navTo(-1), [navTo]);
 
   return {
+    loc,
     canGoBack,
     goTo,
+    goToCb,
     goHome,
     goBack,
   };

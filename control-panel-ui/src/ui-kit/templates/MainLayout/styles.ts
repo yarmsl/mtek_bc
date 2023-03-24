@@ -1,11 +1,14 @@
 import { SxProps } from '@mui/material';
 
-export const rootStyles: SxProps = {
-  width: '100%',
+export const root: SxProps = {
+  width: '100vw',
   minHeight: '100vh',
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gridTemplateRows: 'auto 1fr auto',
-  gridColumnGap: '0px',
-  gridRowGap: '0px',
+  display: 'flex',
+  flexDirection: 'column',
+  pb: '20px',
+};
+
+export const wrapper: SxProps = {
+  p: '10px',
+  flexGrow: 1,
 };

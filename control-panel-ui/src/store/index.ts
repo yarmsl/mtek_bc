@@ -4,6 +4,10 @@ import { AnyAction, combineReducers, configureStore, ThunkDispatch } from '@redu
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { AuthReducer } from '~/modules/Auth/store';
+import { TokenMiddleware } from '~/modules/Auth/store/Auth.middleware';
+import { UserReducer } from '~/modules/User';
+
 import { ModalStackReducer } from './ModalStack';
 import { SnackStackReducer } from './SnackStack';
 import { UIReducer } from './UI';
@@ -14,15 +18,24 @@ const UIPersistConfig = {
   whitelist: ['darkMode'],
 };
 
+const AuthPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['access_token', 'refresh_token'],
+};
+
 const rootReducer = combineReducers({
   modalStack: ModalStackReducer,
   snackStack: SnackStackReducer,
   ui: persistReducer(UIPersistConfig, UIReducer),
+  auth: persistReducer(AuthPersistConfig, AuthReducer),
+  user: UserReducer,
 });
 
 const appStore = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }).concat(TokenMiddleware),
 });
 
 export const persistor = persistStore(appStore);

@@ -1,24 +1,17 @@
-import { resolve } from 'path';
-
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { ServeStaticModule } from '@nestjs/serve-static';
 
-import { AuthModule } from './auth/auth.module';
-import { GoogleAuthModule } from './google-auth/google-auth.module';
-import { MailModule } from './mail/mail.module';
-import { User } from './users/users.model';
-import { UsersModule } from './users/users.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { MailModule } from './modules/mail/mail.module';
+import { User } from './modules/users/users.model';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.env.${process.env.NODE_ENV}`,
       isGlobal: true,
-    }),
-    ServeStaticModule.forRoot({
-      rootPath: resolve(__dirname, 'assets'),
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
@@ -32,7 +25,6 @@ import { UsersModule } from './users/users.module';
     }),
     UsersModule,
     AuthModule,
-    GoogleAuthModule,
     MailModule,
   ],
   controllers: [],

@@ -1,23 +1,39 @@
-import { FC, memo, Suspense } from 'react';
+import { FC, memo, Suspense, useMemo } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Container } from '@mui/material';
+import { Container, Paper, Tab, Tabs } from '@mui/material';
 
+import { useRouter } from '~/hooks/useRouter';
+import { routesInfo } from '~/Router';
 import Loading from '~/ui-kit/atoms/Loading/';
-import Footer from '~/ui-kit/templates/Footer';
-import Header from '~/ui-kit/templates/Header';
 
-import { rootStyles } from './styles';
+import { root, wrapper } from './styles';
 
-const MainLayout: FC = () => (
-  <Container maxWidth={false} sx={rootStyles} disableGutters>
-    <Header />
-    <Container component='main' maxWidth='lg'>
+const MainLayout: FC = () => {
+  const {
+    goToCb,
+    loc: { pathname },
+  } = useRouter();
+
+  const tabValue = useMemo(() => {
+    const location = pathname.replace('/', '');
+    if (routesInfo.some((route) => route.path === location)) return location;
+    return false;
+  }, [pathname]);
+
+  return (
+    <Container component='main' maxWidth='lg' sx={root}>
+      <Tabs value={tabValue} variant='scrollable'>
+        {routesInfo.map(({ path, title }) => (
+          <Tab key={path} label={title} value={path} onClick={goToCb(path)} />
+        ))}
+      </Tabs>
       <Suspense fallback={<Loading fullscreen />}>
-        <Outlet />
+        <Paper sx={wrapper}>
+          <Outlet />
+        </Paper>
       </Suspense>
     </Container>
-    <Footer />
-  </Container>
-);
+  );
+};
 export default memo(MainLayout);

@@ -22,9 +22,7 @@ function App(): JSX.Element {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
-
         <Router />
-
         <SnackStack />
         <ModalStack />
       </ThemeProvider>
