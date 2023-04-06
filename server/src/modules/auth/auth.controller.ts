@@ -50,7 +50,7 @@ export class AuthController {
 
   @Post('test')
   @UseInterceptors(LocalFilesInterceptor({ fieldName: 'img', path: 'test' }))
-  uploadFile(@UploadedFile() img: Express.Multer.File, @Body() body) {
+  uploadFile(@UploadedFile() img, @Body() body) {
     console.log(img);
     return { img: img.path, ...body };
   }
