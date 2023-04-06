@@ -35,6 +35,8 @@ import {
   PocketIcon,
   CheckRoundedIcon,
   DownloadIcon,
+  Lorry3Icon,
+  Lorry4Icon,
 } from "@/ui-kit/icons";
 
 export const iconOptions = {
@@ -71,6 +73,8 @@ export const iconOptions = {
   LorryIcon: <LorryIcon />,
   Box2Icon: <Box2Icon />,
   Lorry2Icon: <Lorry2Icon />,
+  Lorry3Icon: <Lorry3Icon />,
+  Lorry4Icon: <Lorry4Icon />,
   HexIcon: <HexIcon />,
   CheckIcon: <CheckIcon />,
   CheckRoundedIcon: <CheckRoundedIcon />,

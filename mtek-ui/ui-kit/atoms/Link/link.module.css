@@ -1,0 +1,10 @@
+.root {
+  text-decoration: none;
+  transition: color 150ms ease-in-out;
+}
+
+.root:hover {
+  color: rgb(var(--primary));
+  text-decoration: underline;
+  cursor: pointer;
+}

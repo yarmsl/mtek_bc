@@ -1,3 +1,4 @@
+import { IIconsProps } from "@/ui-kit/atoms/Icon/types";
 import { TUiColors, TUiSizes } from "@/ui-kit/types";
 
 export interface IInputProps
@@ -11,6 +12,6 @@ export interface IInputProps
   color?: TUiColors;
   size?: TUiSizes;
   icon?: JSX.Element;
-  iconSize?: number;
-  iconColor?: TUiColors;
+  iconProps?: Omit<IIconsProps, "children">;
+  onWrapperClick?: React.MouseEventHandler<HTMLDivElement>;
 }

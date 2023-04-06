@@ -26,6 +26,8 @@ export * from "./PersonalSupportIcon";
 export * from "./DefenseIcon";
 export * from "./LorryIcon";
 export * from "./Lorry2Icon";
+export * from "./Lorry3Icon";
+export * from "./Lorry4Icon";
 export * from "./HexIcon";
 export * from "./CheckIcon";
 export * from "./ControlsIcon";

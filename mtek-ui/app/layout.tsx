@@ -1,6 +1,12 @@
 import "./globals.css";
 import localFont from "@next/font/local";
 
+import Footer from "@/modules/layouts/Footer";
+import Header from "@/modules/layouts/Header";
+import Box from "@/ui-kit/atoms/Box";
+
+import styles from "./layout.module.css";
+
 const formular = localFont({
   src: [
     {
@@ -40,7 +46,13 @@ export default function RootLayout({
   return (
     <html lang="ru" className={formular.className}>
       <head />
-      <body>{children}</body>
+      <body className={styles.root}>
+        <Header />
+        <Box component="main" className={styles.container}>
+          {children}
+        </Box>
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -1,6 +1,12 @@
 /* stylelint-disable max-line-length */
+@import url("../node_modules/swiper/swiper.min.css");
+@import url("../node_modules/swiper/modules/pagination/pagination.min.css");
+@import url("../node_modules/swiper/modules/effect-fade/effect-fade.min.css");
+@import url("../node_modules/swiper/modules/mousewheel/mousewheel.min.css");
+
 :root {
-  --max-width: 1000px;
+  --max-width: 1462px;
+  --pad: 10px;
   --border-radius: 7px;
   --font-mono:
     ui-monospace,
@@ -30,8 +36,9 @@
   --shadow-2: 0 4px 34px rgb(0 0 0 / 10%);
   --shadow-3: 0 0 31px rgb(0 0 0 / 10%);
   --shadow-4: 0 4px 45px 1px rgb(0 0 0 / 5%);
-  --linear-gradient-1: linear-gradient(92.54deg, #fff 2.45%, rgb(219 219 219 / 0%) 97.68%);
-  --linear-gradient-2: linear-gradient(97.78deg, #faf7f7 4.37%, rgb(250 247 247 / 0%) 80.14%, rgb(250 247 247 / 0%) 80.14%);
+  --shadow-5: 0 0 29px rgb(0 0 0 / 15%);
+  --linear-gradient-1: linear-gradient(92.54deg, #fff 2.45%, rgba(219 219 219 / 35%) 97.68%);
+  --linear-gradient-2: linear-gradient(270deg, #faf7f7 4.37%, rgb(250 247 247 / 0%) 80.14%, rgb(250 247 247 / 0%) 80.14%);
 }
 
 * {
@@ -44,6 +51,7 @@ body {
   overflow-x: hidden;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 button {
@@ -76,6 +84,11 @@ h6 {
   font-weight: 400;
 }
 
+.button_label {
+  font-size: 18px;
+  line-height: 22px;
+}
+
 .body {
   font-size: 18px;
   line-height: 22px;
@@ -84,6 +97,16 @@ h6 {
 .body2 {
   font-size: 14px;
   line-height: 17px;
+}
+
+.body3 {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.body4 {
+  font-size: 13px;
+  line-height: 16px;
 }
 
 .h1 {
@@ -130,6 +153,10 @@ h6 {
 
 .fw_900 {
   font-weight: 900;
+}
+
+.c_inherit {
+  color: inherit;
 }
 
 .c_text_common {
@@ -199,7 +226,7 @@ h6 {
 }
 
 .bg_tp {
-  background-color: transparent;
+  background-color: rgb(var(--common-white));
 }
 
 .bc_primary {
@@ -240,4 +267,43 @@ h6 {
 
 .box_shadow_4 {
   box-shadow: var(--shadow-4);
+}
+
+.box_shadow_5 {
+  box-shadow: var(--shadow-5);
+}
+
+.no_wrap {
+  white-space: nowrap;
+}
+
+.select_none {
+  user-select: none;
+}
+
+.tt_capitalize {
+  text-transform: capitalize;
+}
+
+.tt_uppercase {
+  text-transform: uppercase;
+}
+
+.tt_lowercase {
+  text-transform: lowercase;
+}
+
+@media (max-width: 1025px) {
+  .body {
+    font-size: 12px;
+  }
+
+  .button_label {
+    font-size: 14px;
+  }
+
+  .h2 {
+    font-size: 24px;
+    line-height: 26px;
+  }
 }

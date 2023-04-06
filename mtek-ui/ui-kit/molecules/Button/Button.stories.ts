@@ -16,14 +16,6 @@ const meta: Meta<typeof Button> = {
       control: "select",
       options: iconOptions,
     },
-    iconSize: {
-      control: {
-        type: "range",
-        min: 1,
-        max: 220,
-        step: 1,
-      },
-    },
   },
 };
 

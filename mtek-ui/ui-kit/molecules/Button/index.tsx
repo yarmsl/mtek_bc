@@ -4,13 +4,25 @@ import React from "react";
 
 import { clsx } from "clsx";
 
+import useRipple from "@/hooks/useRipple";
 import Icon from "@/ui-kit/atoms/Icon";
+import { IIconsProps } from "@/ui-kit/atoms/Icon/types";
 import Typography from "@/ui-kit/atoms/Typography";
-import useRipple from "@/ui-kit/hooks/useRipple";
+import { ITypographyProps } from "@/ui-kit/atoms/Typography/types";
 
 import styles from "./button.module.css";
 import { IButtonProps } from "./types";
 import { getTextColor } from "./utils";
+
+const initialIconProps: Omit<IIconsProps, "children"> = {
+  size: 24,
+  color: "inherit",
+};
+const initialTypographyProps: ITypographyProps = {
+  color: "inherit",
+  fontWeight: 500,
+  variant: "button_label",
+};
 
 const Button: React.FC<IButtonProps> = ({
   children = "Button",
@@ -22,9 +34,9 @@ const Button: React.FC<IButtonProps> = ({
   shadow = undefined,
   onClick = undefined,
   icon = undefined,
-  iconColor = undefined,
-  iconSize = 24,
+  iconProps = initialIconProps,
   iconAside = false,
+  typographyProps = initialTypographyProps,
   ...rest
 }) => {
   const textColor = React.useMemo(
@@ -38,12 +50,13 @@ const Button: React.FC<IButtonProps> = ({
     <button
       className={clsx(
         styles.common,
+        styles[variant],
         size !== "medium" && variant !== "outlined" && styles[size],
         fullWidth && "fullWidth",
         shadow && `box_shadow_${shadow}`,
         variant === "contained" ? `bg_${color}` : "bg_tp",
-        variant === "outlined" &&
-          `${styles[`${size}Outlined`]} ${styles.outlined} bc_${color}`,
+        variant === "outlined" && `${styles[`${size}Outlined`]} bc_${color}`,
+        variant !== "contained" && `c_${color}`,
         className
       )}
       onClick={rippledClick}
@@ -51,22 +64,34 @@ const Button: React.FC<IButtonProps> = ({
     >
       <Ripple {...rippleProps}>
         <Typography
-          fontWeight={variant === "text" ? 700 : 500}
-          color={textColor}
-          variant={size === "small" ? "body2" : undefined}
-          className={clsx(styles.text, iconAside && styles.iconAside)}
+          {...{ ...initialTypographyProps, ...typographyProps }}
+          variant={size === "small" ? "body2" : initialTypographyProps.variant}
+          className={clsx(
+            styles.typography,
+            iconAside && styles.iconAside,
+            typographyProps?.className && typographyProps?.className
+          )}
         >
           {icon ? (
             <Icon
-              color={iconColor || textColor}
-              size={iconSize}
-              className={styles.icon}
+              {...{ ...initialIconProps, ...iconProps }}
+              className={clsx(
+                styles.icon,
+                iconProps?.className && iconProps?.className
+              )}
             >
               {icon}
             </Icon>
           ) : null}
           {children}
-          {iconAside ? <span style={{ width: `${iconSize}px` }} /> : null}
+          {iconAside ? (
+            <span
+              style={{
+                width: `${iconProps?.size}px`,
+                minWidth: `${iconProps?.size}px`,
+              }}
+            />
+          ) : null}
         </Typography>
       </Ripple>
     </button>

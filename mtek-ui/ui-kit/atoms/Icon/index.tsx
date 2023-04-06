@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 import clsx from "clsx";
@@ -9,11 +10,13 @@ const Icon: React.FC<IIconsProps> = ({
   color = "primary",
   size = 24,
   className,
+  ...rest
 }) => {
   return (
     <div
-      style={{ width: `${size}px`, height: `${size}px` }}
+      style={{ width: `${size}px`, height: `${size}px`, minWidth: `${size}px` }}
       className={clsx(`c_${color}`, className)}
+      {...rest}
     >
       {children}
     </div>

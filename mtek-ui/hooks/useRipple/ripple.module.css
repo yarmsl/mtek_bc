@@ -6,7 +6,7 @@
   content: "";
   border-radius: 100%;
   opacity: 0.3;
-  animation: 0.9s ease 1 forwards ripple-effect;
+  animation: 1s ease 1 forwards ripple-effect;
 }
 
 .content {
@@ -21,12 +21,12 @@
   }
 
   50% {
-    transform: scale(20);
+    transform: scale(35);
     opacity: 0.115;
   }
 
   100% {
-    transform: scale(60);
+    transform: scale(300);
     opacity: 0;
   }
 }

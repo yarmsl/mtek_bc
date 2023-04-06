@@ -1,0 +1,8 @@
+.input {
+  cursor: pointer;
+}
+
+.input input {
+  caret-color: transparent;
+  cursor: pointer;
+}

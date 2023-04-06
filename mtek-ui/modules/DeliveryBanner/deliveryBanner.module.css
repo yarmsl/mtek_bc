@@ -1,0 +1,113 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  scroll-margin-block-start: 110px;
+}
+
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  position: relative;
+}
+
+.imgBox {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  left: 0;
+}
+
+.imgBox > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.textBox {
+  padding-top: 10%;
+  padding-left: 5%;
+  width: 55%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.textBox > *:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+.typography {
+  font-size: 28px;
+  line-height: 30px;
+}
+
+@media (max-width: 1400px) {
+  .typography {
+    font-size: 26px;
+    line-height: 27px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .typography {
+    font-size: 24px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .typography {
+    font-size: 22px;
+    line-height: 23px;
+  }
+
+  .textBox {
+    padding-top: 9%;
+    padding-left: 2%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .typography {
+    font-size: 17px;
+    line-height: 18px;
+  }
+
+  .textBox {
+    padding-top: 9%;
+    padding-left: 2%;
+  }
+
+  .textBox > *:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 740px) {
+  .typography {
+    font-size: 13px;
+    line-height: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .typography {
+    font-weight: 700;
+    font-size: 7px;
+    line-height: 8px;
+  }
+
+  .textBox {
+    width: 170px;
+  }
+
+  .textBox > *:not(:last-of-type) {
+    margin-bottom: 5px;
+  }
+}
