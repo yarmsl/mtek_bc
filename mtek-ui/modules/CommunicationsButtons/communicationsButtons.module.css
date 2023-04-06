@@ -1,0 +1,25 @@
+.root {
+  width: 100%;
+  max-width: var(--max-width);
+  padding-right: var(--pad);
+  padding-left: var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.root > *:not(:last-of-type) {
+  margin-right: 28px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1025px) {
+  .root {
+    flex-direction: column;
+  }
+
+  .root > *:not(:last-of-type) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}

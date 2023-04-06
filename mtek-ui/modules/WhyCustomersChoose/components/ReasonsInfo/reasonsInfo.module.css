@@ -1,0 +1,43 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  flex-direction: column;
+}
+
+.info > * {
+  width: 50%;
+}
+
+.info > *:first-of-type {
+  margin-right: 58px;
+}
+
+.root > *:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+}
+
+.bid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bidInfo {
+  width: 50%;
+  margin-left: 35px;
+}

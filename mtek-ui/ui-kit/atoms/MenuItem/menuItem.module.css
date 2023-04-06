@@ -1,0 +1,9 @@
+.root {
+  background-color: rgb(var(--common-white));
+  padding: 5px 10px 5px 15px;
+}
+
+.root:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

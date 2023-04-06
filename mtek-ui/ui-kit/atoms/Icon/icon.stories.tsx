@@ -37,6 +37,8 @@ import {
   PocketIcon,
   CheckRoundedIcon,
   DownloadIcon,
+  Lorry4Icon,
+  Lorry3Icon,
 } from "@/ui-kit/icons";
 
 import { iconOptions } from "./iconOptions";
@@ -321,6 +323,22 @@ export const Lorry2: Story = {
   args: {
     color: "primary",
     children: <Lorry2Icon />,
+    size: 100,
+  },
+};
+
+export const Lorry3: Story = {
+  args: {
+    color: "primary",
+    children: <Lorry3Icon />,
+    size: 100,
+  },
+};
+
+export const Lorry4: Story = {
+  args: {
+    color: "primary",
+    children: <Lorry4Icon />,
     size: 100,
   },
 };

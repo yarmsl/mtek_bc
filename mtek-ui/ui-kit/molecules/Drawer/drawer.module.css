@@ -1,0 +1,31 @@
+.root {
+  position: absolute;
+  right: 0;
+  z-index: 11;
+  height: 100%;
+  width: 400px;
+  background-color: rgb(255 255 255 / 85%);
+  transform: translateX(0%);
+  animation: 250ms appear ease-in-out;
+  transition: transform 250ms ease-in-out;
+}
+
+.close {
+  transform: translateX(100%);
+}
+
+@keyframes appear {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@media (max-width: 900px) {
+  .root {
+    width: 100%;
+  }
+}

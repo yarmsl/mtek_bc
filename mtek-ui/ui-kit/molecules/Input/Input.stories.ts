@@ -13,14 +13,6 @@ const meta: Meta<typeof Input> = {
       control: "select",
       options: iconOptions,
     },
-    iconSize: {
-      control: {
-        type: "range",
-        min: 1,
-        max: 220,
-        step: 1,
-      },
-    },
   },
 };
 
@@ -30,5 +22,6 @@ type Story = StoryObj<typeof Input>;
 export const Common: Story = {
   args: {
     color: "primary",
+    placeholder: "Выбрать транспорт",
   },
 };

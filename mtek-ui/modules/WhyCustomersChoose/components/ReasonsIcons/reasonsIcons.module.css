@@ -1,0 +1,32 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  flex-direction: column;
+}
+
+.root > *:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.reasons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reasons > div {
+  width: 25%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}

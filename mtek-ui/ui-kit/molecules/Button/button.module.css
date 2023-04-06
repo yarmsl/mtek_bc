@@ -1,15 +1,9 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
 .common {
   border-radius: var(--border-radius);
   padding: 14px;
   position: relative;
   overflow: hidden;
-  transform: translateY(0);
-  transition: all 250ms ease-in-out;
-}
-
-.common:hover {
-  cursor: pointer;
-  transform: translateY(-4px);
 }
 
 .common:disabled {
@@ -17,16 +11,31 @@
   opacity: 0.65;
 }
 
-.text {
+.typography {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 250ms ease-in-out;
+  white-space: nowrap;
+  user-select: none;
 }
 
 .outlined {
   border-width: 1px;
   border-style: solid;
+  transform: translateY(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.contained {
+  color: rgb(var(--text-contrast));
+  transform: translateY(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.text {
+  transition: background-color 250ms ease-in-out;
 }
 
 .small {
@@ -55,4 +64,20 @@
 
 .iconAside {
   justify-content: space-between;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .common:hover {
+    cursor: pointer;
+  }
+
+  .text:global(.bg_tp):hover {
+    background-color: rgb(var(--primary));
+    color: rgb(var(--common-white));
+  }
+
+  .outlined:hover,
+  .contained:hover {
+    transform: translateY(-4px);
+  }
 }

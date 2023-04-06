@@ -1,3 +1,5 @@
+import { IIconsProps } from "@/ui-kit/atoms/Icon/types";
+import { ITypographyProps } from "@/ui-kit/atoms/Typography/types";
 import { TUiColors, TUiShadows, TUiSizes } from "@/ui-kit/types";
 
 export interface IButtonProps
@@ -11,7 +13,7 @@ export interface IButtonProps
   fullWidth?: boolean;
   shadow?: TUiShadows;
   icon?: JSX.Element;
-  iconSize?: number;
-  iconColor?: TUiColors;
+  iconProps?: Omit<IIconsProps, "children">;
   iconAside?: boolean;
+  typographyProps?: ITypographyProps;
 }
