@@ -7,7 +7,7 @@ services:
       POSTGRES_DB: "pgdb"
       POSTGRES_USER: "pgdbuser"
       POSTGRES_PASSWORD: "pass4pgdbuser"
-    restart: always
+    restart: unless-stopped
     ports:
       - "5432:5432"
     networks:
