@@ -25,7 +25,7 @@ export const Controls2Icon = () => (
       height="85"
       rx="12.5"
       stroke="currentColor"
-      stroke-width="3"
+      strokeWidth="3"
     />
   </svg>
 );

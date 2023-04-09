@@ -2,6 +2,7 @@ export const formatPhoneNumber = (
   phoneNumber: string,
   startWith: "+7" | "8" = "+7"
 ) => {
+  if (!phoneNumber) return "";
   const num = phoneNumber.replace(/\D+/g, "");
   const basis = num.length === 11 ? num.substring(1) : num;
 

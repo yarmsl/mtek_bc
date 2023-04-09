@@ -5,7 +5,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { AuthReducer } from '~/modules/Auth/store';
-import { TokenMiddleware } from '~/modules/Auth/store/Auth.middleware';
+import { refInfoAPI } from '~/modules/RefInfo/refInfo.service';
 import { UserReducer } from '~/modules/User';
 
 import { ModalStackReducer } from './ModalStack';
@@ -30,12 +30,13 @@ const rootReducer = combineReducers({
   ui: persistReducer(UIPersistConfig, UIReducer),
   auth: persistReducer(AuthPersistConfig, AuthReducer),
   user: UserReducer,
+  [refInfoAPI.reducerPath]: refInfoAPI.reducer,
 });
 
 const appStore = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat(TokenMiddleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(refInfoAPI.middleware),
 });
 
 export const persistor = persistStore(appStore);

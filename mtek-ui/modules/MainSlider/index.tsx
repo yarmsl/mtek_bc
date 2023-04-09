@@ -5,6 +5,7 @@ import React from "react";
 import { Autoplay, EffectFade, Mousewheel, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { formatPhoneNumber } from "@/lib/formatPhoneNumber";
 import Box from "@/ui-kit/atoms/Box";
 import Icon from "@/ui-kit/atoms/Icon";
 import Typography from "@/ui-kit/atoms/Typography";
@@ -15,7 +16,15 @@ import RelatedProducts from "./components/RelatedProducts";
 import VehicleOwners from "./components/VehicleOwners";
 import styles from "./mainSlider.module.css";
 
-const MainSlider: React.FC = () => {
+interface IMainSliderProps {
+  phoneNumber: string;
+  shortAddress: string;
+}
+
+const MainSlider: React.FC<IMainSliderProps> = ({
+  phoneNumber,
+  shortAddress,
+}) => {
   const [isMW, setMW] = React.useState(true);
   const toggleMW = React.useCallback(() => setMW((p) => !p), []);
 
@@ -23,11 +32,9 @@ const MainSlider: React.FC = () => {
     <Box component="section" className={styles.root}>
       <Box className={styles.contacts}>
         <Typography color="primary" fontWeight={900} variant="h4">
-          +7 (963) 080-07-66
+          {formatPhoneNumber(phoneNumber)}
         </Typography>
-        <Typography variant="body2">
-          г. Челябинск, ул. Тарасова, д. 38 офис 7
-        </Typography>
+        <Typography variant="body2">{shortAddress}</Typography>
       </Box>
       <Swiper
         key={`mousewheel-${isMW}`}

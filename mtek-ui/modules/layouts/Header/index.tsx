@@ -8,7 +8,15 @@ import Button from "@/ui-kit/molecules/Button";
 
 import styles from "./header.module.css";
 
-const Header: React.FC = () => {
+interface IHeaderProps {
+  isPersonalArea: boolean;
+  personalAreaLink: string;
+}
+
+const Header: React.FC<IHeaderProps> = ({
+  isPersonalArea,
+  personalAreaLink,
+}) => {
   return (
     <Box component="header" className={styles.wrapper}>
       <Box className={styles.root}>
@@ -38,16 +46,20 @@ const Header: React.FC = () => {
             </Link>
           ))}
         </Box>
-        <Box>
-          <Button
-            variant="outlined"
-            icon={<PersonIcon />}
-            iconProps={{ size: 15 }}
-            size="small"
-          >
-            Личный кабинет
-          </Button>
-        </Box>
+        {isPersonalArea && (
+          <Box>
+            <a target="_blank" href={`${personalAreaLink}`} rel="noreferrer">
+              <Button
+                variant="outlined"
+                icon={<PersonIcon />}
+                iconProps={{ size: 15 }}
+                size="small"
+              >
+                Личный кабинет
+              </Button>
+            </a>
+          </Box>
+        )}
       </Box>
     </Box>
   );

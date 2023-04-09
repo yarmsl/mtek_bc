@@ -8,8 +8,8 @@ import { useAppDispatch } from '~/store';
 import EmailTextField from '~/ui-kit/atoms/EmailTextField';
 import PasswordTextField from '~/ui-kit/atoms/PasswordTextField';
 
-import { signInThunk } from '../../store';
 import { root, controls } from './styles';
+import { signInThunk } from '../../store';
 
 const Signin: React.FC = () => {
   const dispatch = useAppDispatch();
