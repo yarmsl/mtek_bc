@@ -9,8 +9,8 @@ import EmailTextField from '~/ui-kit/atoms/EmailTextField';
 import PasswordTextField from '~/ui-kit/atoms/PasswordTextField';
 import TextField from '~/ui-kit/atoms/TextField';
 
-import { signUpThunk } from '../../store';
 import { root, controls } from './styles';
+import { signUpThunk } from '../../store';
 
 const Signup: React.FC = () => {
   const dispatch = useAppDispatch();

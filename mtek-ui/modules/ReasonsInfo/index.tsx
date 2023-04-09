@@ -6,7 +6,12 @@ import Button from "@/ui-kit/molecules/Button";
 
 import styles from "./reasonsInfo.module.css";
 
-const ReasonsInfo: React.FC = () => {
+interface IReasonsInfoProps {
+  mail: string;
+  phoneNumber: string;
+}
+
+const ReasonsInfo: React.FC<IReasonsInfoProps> = ({ mail, phoneNumber }) => {
   return (
     <Box className={styles.wrapper}>
       <Box className={styles.root}>
@@ -71,12 +76,12 @@ const ReasonsInfo: React.FC = () => {
           </Button>
           <Typography className={styles.bidInfo}>
             Или свяжитесь с нашими менеджерами по телефону{" "}
-            <Link color="primary" href="tel:89630800766">
-              {formatPhoneNumber("89630800766")}
+            <Link color="primary" href={`tel:${phoneNumber}`}>
+              {formatPhoneNumber(phoneNumber)}
             </Link>{" "}
             или через электронную почту{" "}
-            <Link color="primary" href="mailto:m-tek74@yandex.ru">
-              m-tek74@yandex.ru
+            <Link color="primary" href={`mailto:${mail}`}>
+              {mail}
             </Link>
           </Typography>
         </Box>

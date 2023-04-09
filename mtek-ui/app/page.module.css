@@ -1,52 +1,12 @@
-.main {
+.container {
   flex-grow: 1;
   width: 100%;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgb(var(--card-rgb) 0.1);
-    border: 1px solid rgb(var(--card-border-rgb) 0.15);
-  }
-
-  .card:hover span {
-    transform: translateX(4px);
-  }
-}
-
-@media (prefers-reduced-motion) {
-  .thirteen::before {
-    animation: none;
-  }
-
-  .card:hover span {
-    transform: none;
-  }
-}
-
-@media (min-width: 1442px) {
-  .content {
-    padding: 4rem;
-  }
-}
-
-/* Mobile and Tablet */
-
-/* @media (max-width: 1023px) {
-  .content {
-    padding: 4rem;
-  }
-} */
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0deg);
-  }
+.container > * {
+  margin-bottom: 100px;
 }

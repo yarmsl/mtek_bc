@@ -9,13 +9,13 @@ import Check from './modules/Auth/components/Check';
 import Signin from './modules/Auth/components/Signin';
 import Signup from './modules/Auth/components/Signup';
 import { isAuthSelector } from './modules/Auth/store';
-import SecondPage from './pages/SecondPage';
+import RefInfoPage from './pages/RefInfoPage';
 import { useAppSelector } from './store';
 import AuthLayout from './ui-kit/templates/AuthLayout';
 
 const routes = [
   { title: 'Home', path: '', Element: Home },
-  { title: 'Second', path: 'second_page', Element: SecondPage },
+  { title: 'Справочная информация', path: 'ref_info', Element: RefInfoPage },
 ];
 
 export const routesInfo = routes.map((route) => {

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import jwtDecode from 'jwt-decode';
 
-import { checkAuthThunk, signInThunk, signUpThunk } from '../Auth/store';
 import { initialState } from './initialState';
+import { checkAuthThunk, signInThunk, signUpThunk } from '../Auth/store';
 
 const UserSlice = createSlice({
   name: 'User',

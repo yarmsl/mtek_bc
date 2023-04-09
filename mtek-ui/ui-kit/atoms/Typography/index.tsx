@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 import { ITypographyProps } from "./types";
 
 const Typography: React.FC<ITypographyProps> = ({
-  children = "Typography",
+  children,
   className,
   component = "span",
   color = "text_common",

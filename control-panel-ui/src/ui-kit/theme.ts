@@ -89,7 +89,7 @@ export const theme = (darkMode: boolean): Theme =>
               contrastText: '#fff',
             },
             background: {
-              paper: '#e0eeff',
+              paper: '#fff',
               default: '#f0f4f9',
             },
             text: {
@@ -142,8 +142,15 @@ export const theme = (darkMode: boolean): Theme =>
             inputSizeSmall: {
               padding: 0,
             },
+            input: {
+              '&:-webkit-autofill': {
+                transitionDelay: '9999s',
+                transitionProperty: 'background-color, color',
+              },
+            },
           },
         },
+
         MuiTooltip: {
           styleOverrides: {
             tooltip: {

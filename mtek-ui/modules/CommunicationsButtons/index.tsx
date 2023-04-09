@@ -6,21 +6,31 @@ import Button from "@/ui-kit/molecules/Button";
 
 import styles from "./communicationsButtons.module.css";
 
-const CommunicationsButtons: React.FC = () => {
+interface ICommunicationsButtonsProps {
+  isPersonalArea: boolean;
+  personalAreaLink: string;
+}
+
+const CommunicationsButtons: React.FC<ICommunicationsButtonsProps> = ({
+  isPersonalArea,
+  personalAreaLink,
+}) => {
   return (
     <Box component="section" className={styles.root}>
-      <Button
-        icon={<PersonIcon />}
-        iconAside
-        iconProps={{ size: 34 }}
-        size="large"
-        shadow={5}
-        variant="text"
-        fullWidth
-        typographyProps={{ fontWeight: 400 }}
-      >
-        Личный кабинет
-      </Button>
+      {isPersonalArea ? (
+        <Button
+          icon={<PersonIcon />}
+          iconAside
+          iconProps={{ size: 34 }}
+          size="large"
+          shadow={5}
+          variant="text"
+          fullWidth
+          typographyProps={{ fontWeight: 400 }}
+        >
+          Личный кабинет
+        </Button>
+      ) : null}
       <Button
         icon={<HeadsetIcon />}
         iconAside

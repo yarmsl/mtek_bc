@@ -46,13 +46,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={formular.className}>
       <head />
-      <body className={styles.root}>
-        <Header />
-        <Box component="main" className={styles.container}>
-          {children}
-        </Box>
-        <Footer />
-      </body>
+      <body className={styles.root}>{children}</body>
     </html>
   );
 }
