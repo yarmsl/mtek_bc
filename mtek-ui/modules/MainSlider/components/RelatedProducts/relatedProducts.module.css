@@ -47,6 +47,10 @@
   object-position: center;
 }
 
+.btnwrapper {
+  width: 100%;
+}
+
 @media (max-width: 1025px) {
   .root {
     flex-direction: column-reverse;

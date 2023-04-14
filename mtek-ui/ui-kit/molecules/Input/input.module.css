@@ -13,9 +13,9 @@
   border: unset;
 }
 
-.root::placeholder {
+/* .root::placeholder {
   color: inherit;
-}
+} */
 
 .root:disabled {
   background-color: inherit;

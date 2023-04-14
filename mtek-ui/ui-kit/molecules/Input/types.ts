@@ -10,6 +10,7 @@ export interface IInputProps
     "size"
   > {
   color?: TUiColors;
+  textColor?: TUiColors;
   size?: TUiSizes;
   icon?: JSX.Element;
   iconProps?: Omit<IIconsProps, "children">;

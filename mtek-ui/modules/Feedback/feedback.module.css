@@ -1,0 +1,48 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  scroll-margin-block-start: 130px;
+}
+
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+}
+
+.fields > * {
+  flex-grow: 1;
+}
+
+.root > *:not(:last-child) {
+  margin-bottom: 36px;
+}
+
+.fields {
+  width: 100%;
+  display: flex;
+}
+
+.fields > *:not(:last-of-type) {
+  margin-right: 30px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error {
+  height: 16px;
+  color: rgb(255 60 60);
+}

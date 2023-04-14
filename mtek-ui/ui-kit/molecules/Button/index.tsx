@@ -65,7 +65,7 @@ const Button: React.FC<IButtonProps> = ({
       <Ripple {...rippleProps}>
         <Typography
           {...{ ...initialTypographyProps, ...typographyProps }}
-          variant={size === "small" ? "body2" : initialTypographyProps.variant}
+          variant={size === "small" ? "body2" : typographyProps.variant}
           className={clsx(
             styles.typography,
             iconAside && styles.iconAside,

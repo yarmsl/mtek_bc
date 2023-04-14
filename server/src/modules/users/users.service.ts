@@ -57,7 +57,7 @@ export class UsersService {
       throw new Error();
     } catch {
       throw new UnauthorizedException({
-        message: 'Некоректный email или пароль',
+        message: 'Некорректный email или пароль',
       });
     }
   }

@@ -4,11 +4,13 @@ import Advantages from "@/modules/Advantages";
 import CargoOwner from "@/modules/CargoOwner";
 import CommunicationsButtons from "@/modules/CommunicationsButtons";
 import DeliveryBanner from "@/modules/DeliveryBanner";
+import Feedback from "@/modules/Feedback";
 import Footer from "@/modules/layouts/Footer";
 import Header from "@/modules/layouts/Header";
 import MainSlider from "@/modules/MainSlider";
 import ReasonsIcons from "@/modules/ReasonsIcons";
 import ReasonsInfo from "@/modules/ReasonsInfo";
+import RelatedProducts from "@/modules/RelatedProducts";
 import Box from "@/ui-kit/atoms/Box";
 
 import styles from "./page.module.css";
@@ -48,6 +50,8 @@ export default async function Home() {
         <DeliveryBanner />
         <ReasonsIcons />
         <ReasonsInfo mail={mail} phoneNumber={phoneNumber} />
+        <RelatedProducts />
+        <Feedback />
         <About />
       </Box>
       <Footer />

@@ -71,9 +71,11 @@ const ReasonsInfo: React.FC<IReasonsInfoProps> = ({ mail, phoneNumber }) => {
           </Typography>
         </Box>
         <Box className={styles.bid}>
-          <Button size="small" typographyProps={{ fontWeight: 400 }}>
-            Оформите заявку
-          </Button>
+          <a href="#Оставить_заявку">
+            <Button typographyProps={{ fontWeight: 400, variant: "body2" }}>
+              Оформите заявку
+            </Button>
+          </a>
           <Typography className={styles.bidInfo}>
             Или свяжитесь с нашими менеджерами по телефону{" "}
             <Link color="primary" href={`tel:${phoneNumber}`}>
