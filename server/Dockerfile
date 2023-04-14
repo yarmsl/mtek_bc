@@ -6,5 +6,5 @@ RUN yarn install
 ADD . .
 RUN yarn build
 VOLUME ["/app/upload"]
-CMD ["yarn", "start"]
+CMD ["yarn", "start:prod"]
 EXPOSE 8080

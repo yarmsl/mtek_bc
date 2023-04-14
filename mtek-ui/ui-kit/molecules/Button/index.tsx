@@ -25,7 +25,7 @@ const initialTypographyProps: ITypographyProps = {
 };
 
 const Button: React.FC<IButtonProps> = ({
-  children = "Button",
+  children,
   className,
   variant = "contained",
   size = "medium",

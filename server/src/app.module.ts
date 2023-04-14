@@ -2,7 +2,11 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 
+import { Article } from './modules/articles/articles.model';
+import { ArticlesModule } from './modules/articles/articles.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { File } from './modules/files/files.model';
+import { FilesModule } from './modules/files/files.module';
 import { MailModule } from './modules/mail/mail.module';
 import { RefInfo } from './modules/refInfo/refInfo.model';
 import { RefInfoModule } from './modules/refInfo/refInfo.module';
@@ -22,13 +26,15 @@ import { UsersModule } from './modules/users/users.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, RefInfo],
+      models: [User, RefInfo, File, Article],
       autoLoadModels: true,
     }),
     UsersModule,
     AuthModule,
-    MailModule,
     RefInfoModule,
+    MailModule,
+    FilesModule,
+    ArticlesModule,
   ],
   controllers: [],
   providers: [],

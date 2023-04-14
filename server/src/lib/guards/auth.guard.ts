@@ -12,19 +12,22 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService) {}
 
   async canActivate(context: ExecutionContext) {
-    const req = context.switchToHttp().getRequest();
     try {
+      const req = context.switchToHttp().getRequest();
+      if (!req.headers.authorization) throw new Error();
+
       const [tokenType, token] = req.headers.authorization.split(' ');
 
-      if (tokenType !== 'Bearer' || !token) throw new Error();
+      if (tokenType !== 'Bearer' || !token)
+        throw new Error('Токен отсутствует или неверный тип');
       const user = await this.authService.validateToken(token, 'access');
       req.user = user;
 
       return true;
     } catch (e) {
-      console.log(e);
       throw new UnauthorizedException({
-        message: 'Пользователь не авторизован',
+        message:
+          (e instanceof Error && e.message) || 'Пользователь не авторизован',
       });
     }
   }

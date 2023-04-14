@@ -12,5 +12,6 @@ import { UsersModule } from '../users/users.module';
   controllers: [RefInfoController],
   providers: [RefInfoService, AuthService, JwtService],
   imports: [SequelizeModule.forFeature([RefInfo]), UsersModule],
+  exports: [RefInfoService],
 })
 export class RefInfoModule {}
