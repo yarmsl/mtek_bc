@@ -163,7 +163,8 @@ export class RefInfo extends Model<RefInfo, IRefInfo> {
   })
   @Column({
     type: DataType.STRING,
-    defaultValue: null,
+    allowNull: false,
+    defaultValue: '',
   })
   send_mail: string;
 
@@ -173,7 +174,8 @@ export class RefInfo extends Model<RefInfo, IRefInfo> {
   })
   @Column({
     type: DataType.STRING,
-    defaultValue: null,
+    allowNull: false,
+    defaultValue: '',
   })
   send_mail_password: string;
 }
