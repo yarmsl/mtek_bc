@@ -24,7 +24,7 @@ import { RefInfoService } from '../refInfo/refInfo.service';
 
             auth: {
               user: refInfo?.send_mail,
-              pass: atob(refInfo?.send_mail_password),
+              pass: atob(refInfo?.send_mail_password || ''),
             },
           },
           defaults: {
