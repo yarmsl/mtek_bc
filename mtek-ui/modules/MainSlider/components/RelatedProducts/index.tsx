@@ -25,9 +25,11 @@ const RelatedProducts: React.FC = () => {
           крепежи, молдинги.
         </Typography>
         <Box className={styles.controls}>
-          <Button size="small" variant="outlined" fullWidth>
-            Подробнее
-          </Button>
+          <a className={styles.btnwrapper} href="#Сопутствующие_товары">
+            <Button size="small" variant="outlined" fullWidth>
+              Подробнее
+            </Button>
+          </a>
         </Box>
       </Box>
       <Box className={styles.imageBox}>

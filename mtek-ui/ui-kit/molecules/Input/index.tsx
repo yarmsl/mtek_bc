@@ -20,6 +20,7 @@ const Input = React.forwardRef(
     {
       size = "medium",
       color = "primary",
+      textColor = "primary",
       onWrapperClick,
       icon,
       iconProps = initialIconProps,
@@ -51,7 +52,7 @@ const Input = React.forwardRef(
         ) : null}
         <input
           {...rest}
-          className={clsx(styles.root, styles[size], `c_${color}`)}
+          className={clsx(styles.root, styles[size], `c_${textColor}`)}
         />
       </div>
     );

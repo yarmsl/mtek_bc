@@ -7,6 +7,6 @@ export class DeleteUserDto {
     description: 'Почтовый ящик',
   })
   @IsString({ message: 'Должно быть строкой' })
-  @IsEmail({}, { message: 'Некоректный email' })
+  @IsEmail({}, { message: 'Некорректный email' })
   readonly email: string;
 }

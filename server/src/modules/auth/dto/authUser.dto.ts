@@ -7,7 +7,7 @@ export class AuthUserDto implements Pick<IUser, 'email' | 'password'> {
     description: 'Почтовый ящик',
   })
   @IsString({ message: 'Должно быть строкой' })
-  @IsEmail({}, { message: 'Некоректный email' })
+  @IsEmail({}, { message: 'Некорректный email' })
   readonly email: string;
 
   @ApiProperty({

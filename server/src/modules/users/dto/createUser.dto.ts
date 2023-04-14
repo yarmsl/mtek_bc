@@ -21,7 +21,7 @@ export class CreateUserDto {
     description: 'Почтовый ящик',
   })
   @IsString({ message: 'Должно быть строкой' })
-  @IsEmail({}, { message: 'Некоректный email' })
+  @IsEmail({}, { message: 'Некорректный email' })
   readonly email: string;
 
   @ApiProperty({
