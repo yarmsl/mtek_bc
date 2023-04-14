@@ -136,7 +136,7 @@ export class AuthService {
       return verified;
     } catch (e) {
       throw new UnauthorizedException({
-        message: 'Пользователь не авторизован',
+        message: e instanceof Error ? e.message : 'Пользователь не авторизован',
       });
     }
   }

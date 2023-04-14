@@ -12,4 +12,7 @@ interface IRefInfo {
   address_office: string;
   mail: string;
   phoneNumber: string;
+  get_mail: string;
+  send_mail: string;
+  send_mail_password: string;
 }

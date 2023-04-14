@@ -4,29 +4,22 @@ import {
   HttpException,
   HttpStatus,
   Injectable,
+  UnauthorizedException,
 } from '@nestjs/common';
-
-import { AuthService } from '../../modules/auth/auth.service';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
-  constructor(private authService: AuthService) {}
-
   async canActivate(context: ExecutionContext) {
     const req = context.switchToHttp().getRequest();
-    try {
-      const [tokenType, token] = req.headers.authorization.split(' ');
 
-      if (tokenType !== 'Bearer' || !token) throw new Error();
-      const user = await this.authService.validateToken(token, 'access');
+    if (!req.user)
+      throw new UnauthorizedException({
+        message: 'Пользователь не авторизован',
+      });
 
-      if (user.role !== 'admin') throw new Error();
-
-      req.user = user;
-
-      return true;
-    } catch (e) {
+    if (req.user.role !== 'admin')
       throw new HttpException('Недостаточно прав', HttpStatus.FORBIDDEN);
-    }
+
+    return true;
   }
 }

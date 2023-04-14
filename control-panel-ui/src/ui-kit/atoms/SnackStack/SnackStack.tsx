@@ -18,7 +18,10 @@ const SnackStack: FC<ISnackStackLayoutProps> = ({
   // eslint-disable-next-line react/jsx-no-useless-fragment
   <>
     {cuttedSnackStack.length > 0 && (
-      <Stack spacing={spacing} sx={{ position: 'fixed', top, right, bottom, left, transform }}>
+      <Stack
+        spacing={spacing}
+        sx={{ position: 'fixed', top, right, bottom, left, transform, zIndex: 1400 }}
+      >
         {cuttedSnackStack.map(
           ({
             id,

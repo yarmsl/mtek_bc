@@ -28,7 +28,6 @@ export class AuthController {
 
   @ApiOperation({ summary: 'Авторизация' })
   @ApiResponse({ status: 200, type: TokensRes })
-  // @UseGuards(AdminGuard)
   @Post('signin')
   signin(@Body() signinDto: AuthUserDto) {
     return this.authService.signin(signinDto);
@@ -46,12 +45,5 @@ export class AuthController {
   @Get('refresh')
   refresh(@Headers('authorization') authHeader: string) {
     return this.authService.refresh(authHeader);
-  }
-
-  @Post('test')
-  @UseInterceptors(LocalFilesInterceptor({ fieldName: 'img', path: 'test' }))
-  uploadFile(@UploadedFile() img, @Body() body) {
-    console.log(img);
-    return { img: img.path, ...body };
   }
 }

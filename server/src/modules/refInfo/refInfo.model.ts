@@ -145,4 +145,35 @@ export class RefInfo extends Model<RefInfo, IRefInfo> {
     defaultValue: '',
   })
   phoneNumber: string;
+
+  @ApiProperty({
+    example: 'mail@mail.ru',
+    description: 'Почтовый адрес для получения обратной связи',
+  })
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+    defaultValue: '',
+  })
+  get_mail: string;
+
+  @ApiProperty({
+    example: 'mail@mail.ru',
+    description: 'Почтовый адрес для отправки формы',
+  })
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null,
+  })
+  send_mail: string;
+
+  @ApiProperty({
+    example: '12345678',
+    description: 'Пароль для почты для отправки формы',
+  })
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null,
+  })
+  send_mail_password: string;
 }

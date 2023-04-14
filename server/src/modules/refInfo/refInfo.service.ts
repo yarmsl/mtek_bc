@@ -13,11 +13,13 @@ export class RefInfoService {
   async updateRefInfo(dto: UpdateRefInfoDto) {
     try {
       const refInfo = await this.refInfoRepository.findOne();
+
       if (!refInfo) return await this.refInfoRepository.create(dto);
       return await refInfo.update(dto);
-    } catch {
+    } catch (e) {
       throw new HttpException(
-        'Невозможно изменить справочную информацию',
+        (e instanceof Error && e.message) ||
+          'Невозможно изменить справочную информацию',
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
@@ -26,9 +28,10 @@ export class RefInfoService {
   async readRefInfo() {
     try {
       return await this.refInfoRepository.findOne();
-    } catch {
+    } catch (e) {
       throw new HttpException(
-        'Невозможно получить справочную информацию',
+        (e instanceof Error && e.message) ||
+          'Невозможно изменить справочную информацию',
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }

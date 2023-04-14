@@ -79,4 +79,22 @@ export class UpdateRefInfoDto implements IRefInfo {
     description: 'Почтовый адрес основной',
   })
   readonly mail: string;
+
+  @ApiProperty({
+    example: 'mail@mail.ru',
+    description: 'Почтовый адрес для получения обратной связи',
+  })
+  readonly get_mail: string;
+
+  @ApiProperty({
+    example: 'mail@mail.ru',
+    description: 'Почтовый адрес для отправки формы',
+  })
+  readonly send_mail: string;
+
+  @ApiProperty({
+    example: '12345678',
+    description: 'Пароль для почты для отправки формы',
+  })
+  readonly send_mail_password: string;
 }

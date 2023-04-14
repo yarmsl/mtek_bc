@@ -9,17 +9,40 @@ import styles from "./communicationsButtons.module.css";
 interface ICommunicationsButtonsProps {
   isPersonalArea: boolean;
   personalAreaLink: string;
+  managerPhoneNumber: string;
 }
 
 const CommunicationsButtons: React.FC<ICommunicationsButtonsProps> = ({
   isPersonalArea,
   personalAreaLink,
+  managerPhoneNumber,
 }) => {
   return (
     <Box component="section" className={styles.root}>
       {isPersonalArea ? (
+        <a
+          href={personalAreaLink}
+          target="_blank"
+          className={styles.link}
+          rel="noreferrer"
+        >
+          <Button
+            icon={<PersonIcon />}
+            iconAside
+            iconProps={{ size: 34 }}
+            size="large"
+            shadow={5}
+            variant="text"
+            fullWidth
+            typographyProps={{ fontWeight: 400 }}
+          >
+            Личный кабинет
+          </Button>
+        </a>
+      ) : null}
+      <a href={`tel:${managerPhoneNumber}`}>
         <Button
-          icon={<PersonIcon />}
+          icon={<HeadsetIcon />}
           iconAside
           iconProps={{ size: 34 }}
           size="large"
@@ -28,21 +51,9 @@ const CommunicationsButtons: React.FC<ICommunicationsButtonsProps> = ({
           fullWidth
           typographyProps={{ fontWeight: 400 }}
         >
-          Личный кабинет
+          Связаться с менеджером
         </Button>
-      ) : null}
-      <Button
-        icon={<HeadsetIcon />}
-        iconAside
-        iconProps={{ size: 34 }}
-        size="large"
-        shadow={5}
-        variant="text"
-        fullWidth
-        typographyProps={{ fontWeight: 400 }}
-      >
-        Связаться с менеджером
-      </Button>
+      </a>
     </Box>
   );
 };

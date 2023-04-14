@@ -41,6 +41,7 @@ export default async function Home() {
         <CommunicationsButtons
           personalAreaLink={personalArea_externalLink}
           isPersonalArea={personalArea_isShow}
+          managerPhoneNumber={manager_phoneNumber}
         />
         <Advantages />
         <CargoOwner />

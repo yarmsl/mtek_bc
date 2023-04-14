@@ -5,22 +5,18 @@ import jwtDecode from 'jwt-decode';
 import { accessTokenSelector, refreshTokenThunk } from '~/modules/Auth/store';
 import { useAppDispatch, useAppSelector } from '~/store';
 
-export const useRefreshToken = (): { refreshAccessToken: () => Promise<void> } => {
+export const useRefreshToken = (): {
+  refreshAccessToken: () => Promise<void>;
+} => {
   const dispatch = useAppDispatch();
 
   const access_token = useAppSelector(accessTokenSelector);
 
-  const decoded = React.useMemo(() => jwtDecode<IToken<IUser>>(access_token), [access_token]);
-
-  const remainingTime = React.useMemo(
-    () => +`${decoded.exp}000` - new Date().getTime(),
-    [decoded.exp],
-  );
-  const isNeedToRefresh = React.useMemo(() => remainingTime < 5000, [remainingTime]);
-
   const refreshAccessToken = React.useCallback(async () => {
+    const decoded = jwtDecode<IToken<IUser>>(access_token);
+    const isNeedToRefresh = +`${decoded.exp}000` - new Date().getTime() < 5000;
     if (isNeedToRefresh) await dispatch(refreshTokenThunk());
-  }, [dispatch, isNeedToRefresh]);
+  }, [access_token, dispatch]);
 
   return { refreshAccessToken };
 };

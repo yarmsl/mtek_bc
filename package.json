@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "install:all": "yarn install && cd ./server && yarn install && cd ../control-panel-ui && yarn install && cd ../mtek-ui && yarn install",
-    "start:db": "cd ./server && yarn start:db",
+    "start:db": "cd ./server && yarn db",
     "dev": "concurrently -p '[{name}]' -c 'bgGreen,bgCyan,bgMagenta' -n 'server,control-panel-ui,mtek-ui' 'cd ./server && yarn start:dev' 'cd ./control-panel-ui && yarn dev' 'cd ./mtek-ui && yarn dev'",
     "dev:ui": "cd ./mtek-ui && yarn dev",
     "dev:sb": "cd ./mtek-ui && yarn sb"

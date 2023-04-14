@@ -1,28 +1,14 @@
 import { FC } from 'react';
 
-import { Box, Button, Typography } from '@mui/material';
-
-import { checkAuthThunk, refreshTokenThunk, signInThunk } from '~/modules/Auth/store';
-import { useAppDispatch } from '~/store';
-import { toggleDarkMode } from '~/store/UI';
+import { Box, Typography } from '@mui/material';
 
 const Home: FC = () => {
-  const dispatch = useAppDispatch();
   return (
     <Box>
-      <Typography>Hello</Typography>
-      <Button
-        // onClick={() => dispatch(signInThunk({ email: 'slideryo@gmail.com', password: '12345678' }))}
-        onClick={() => dispatch(refreshTokenThunk())}
-      >
-        refresh
-      </Button>
-      <Button
-        onClick={() => dispatch(signInThunk({ email: 'slideryo@gmail.com', password: '12345678' }))}
-      >
-        signin
-      </Button>
-      <Button onClick={() => dispatch(toggleDarkMode())}>dark mode switch</Button>
+      <Typography variant='h5'>Добро пожаловать в панель управления</Typography>
+      <Typography>
+        Любые изменения, сделанные при помощие данного инструмента, вступят в силу в течении 1 часа.
+      </Typography>
     </Box>
   );
 };

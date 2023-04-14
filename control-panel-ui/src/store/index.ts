@@ -4,7 +4,9 @@ import { AnyAction, combineReducers, configureStore, ThunkDispatch } from '@redu
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { articlesAPI } from '~/modules/Articles/articles.service';
 import { AuthReducer } from '~/modules/Auth/store';
+import { filesAPI } from '~/modules/Files/files.service';
 import { refInfoAPI } from '~/modules/RefInfo/refInfo.service';
 import { UserReducer } from '~/modules/User';
 
@@ -31,12 +33,18 @@ const rootReducer = combineReducers({
   auth: persistReducer(AuthPersistConfig, AuthReducer),
   user: UserReducer,
   [refInfoAPI.reducerPath]: refInfoAPI.reducer,
+  [filesAPI.reducerPath]: filesAPI.reducer,
+  [articlesAPI.reducerPath]: articlesAPI.reducer,
 });
 
 const appStore = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat(refInfoAPI.middleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(
+      refInfoAPI.middleware,
+      filesAPI.middleware,
+      articlesAPI.middleware,
+    ),
 });
 
 export const persistor = persistStore(appStore);

@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.root > * {
+  width: 100%;
+}
+
 .root > *:not(:last-of-type) {
   margin-right: 28px;
   margin-bottom: 0;
