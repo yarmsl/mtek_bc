@@ -1,6 +1,7 @@
 import "./globals.css";
 import localFont from "@next/font/local";
 
+import { apiGet } from "@/lib/api";
 import Footer from "@/modules/layouts/Footer";
 import Header from "@/modules/layouts/Header";
 import Box from "@/ui-kit/atoms/Box";
@@ -38,15 +39,26 @@ const formular = localFont({
   display: "swap",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { personalArea_externalLink, personalArea_isShow } =
+    await apiGet<IRefInfo>("refInfo", { next: { revalidate: 3600 } });
   return (
     <html lang="ru" className={formular.className}>
       <head />
-      <body className={styles.root}>{children}</body>
+      <body className={styles.root}>
+        <Header
+          personalAreaLink={personalArea_externalLink}
+          isPersonalArea={personalArea_isShow}
+        />
+        <Box component="main" className={styles.container}>
+          {children}
+        </Box>
+        <Footer />
+      </body>
     </html>
   );
 }

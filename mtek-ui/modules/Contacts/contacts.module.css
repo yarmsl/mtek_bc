@@ -1,0 +1,18 @@
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  flex-direction: column;
+  scroll-margin-block-start: 130px;
+}
+
+.root > *:not(:last-child) {
+  margin-bottom: 55px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+}

@@ -62,46 +62,44 @@ const Feedback: React.FC = () => {
   }, [data]);
 
   return (
-    <Box className={styles.wrapper} component="section" id="Оставить_заявку">
-      <Box className={styles.root}>
-        <Typography className={styles.title} variant="h4">
-          Оставьте свой контакт и мы разработаем и изготовим идеальное решение
-          для вас
+    <Box className={styles.root} component="section" id="Оставить_заявку">
+      <Typography className={styles.title} variant="h4">
+        Оставьте свой контакт и мы разработаем и изготовим идеальное решение для
+        вас
+      </Typography>
+      <Box className={styles.fields}>
+        <Input
+          value={data.name}
+          onChange={handleChangeName}
+          color="grey_4"
+          textColor="text_common"
+          placeholder="ФИО"
+        />
+        <Input
+          value={data.phone}
+          onChange={handleChangePhone}
+          color="grey_4"
+          textColor="text_common"
+          placeholder="Ваш телефон"
+        />
+        <Input
+          value={data.email}
+          onChange={handleChangeEmail}
+          color="grey_4"
+          textColor="text_common"
+          placeholder="Электронная почта"
+        />
+      </Box>
+      <Box className={styles.btn}>
+        <Button
+          onClick={handleSubmit}
+          typographyProps={{ fontWeight: 400, variant: "body2" }}
+        >
+          Оставить заявку
+        </Button>
+        <Typography className={styles.error} variant="body4">
+          {error}
         </Typography>
-        <Box className={styles.fields}>
-          <Input
-            value={data.name}
-            onChange={handleChangeName}
-            color="grey_4"
-            textColor="text_common"
-            placeholder="ФИО"
-          />
-          <Input
-            value={data.phone}
-            onChange={handleChangePhone}
-            color="grey_4"
-            textColor="text_common"
-            placeholder="Ваш телефон"
-          />
-          <Input
-            value={data.email}
-            onChange={handleChangeEmail}
-            color="grey_4"
-            textColor="text_common"
-            placeholder="Электронная почта"
-          />
-        </Box>
-        <Box className={styles.btn}>
-          <Button
-            onClick={handleSubmit}
-            typographyProps={{ fontWeight: 400, variant: "body2" }}
-          >
-            Оставить заявку
-          </Button>
-          <Typography className={styles.error} variant="body4">
-            {error}
-          </Typography>
-        </Box>
       </Box>
     </Box>
   );

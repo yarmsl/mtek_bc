@@ -1,0 +1,25 @@
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  flex-direction: column;
+}
+
+.btns > a {
+  width: calc(100% / 3);
+}
+
+.btns > a:not(:last-of-type) {
+  margin-right: 30px;
+}
+
+.root > *:not(:last-child) {
+  margin-bottom: 55px;
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+}

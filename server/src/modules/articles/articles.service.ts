@@ -25,7 +25,9 @@ export class ArticlesService {
 
   async readArticles() {
     try {
-      return await this.articlesRepository.findAll();
+      return await this.articlesRepository.findAll({
+        order: [['id', 'ASC']],
+      });
     } catch (e) {
       throw new HttpException(
         (e instanceof Error && e.message) || 'Не удалось получить статьи',

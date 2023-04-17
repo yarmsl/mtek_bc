@@ -7,18 +7,16 @@ import styles from "./reasonsIcons.module.css";
 
 const ReasonsIcons: React.FC = () => {
   return (
-    <Box className={styles.wrapper}>
-      <Box className={styles.root}>
-        <Typography fontWeight={700} variant="h2">
-          Почему клиенты выбирают «М-ТЭК»
-        </Typography>
-        <Box className={styles.reasons}>
-          {reasonsIconsConfig.map((reason, i) => (
-            <Box key={i}>
-              <ReasonIcon {...reason} />
-            </Box>
-          ))}
-        </Box>
+    <Box component="section" className={styles.root}>
+      <Typography fontWeight={700} variant="h2">
+        Почему клиенты выбирают «М-ТЭК»
+      </Typography>
+      <Box className={styles.reasons}>
+        {reasonsIconsConfig.map((reason, i) => (
+          <Box key={i}>
+            <ReasonIcon {...reason} />
+          </Box>
+        ))}
       </Box>
     </Box>
   );
