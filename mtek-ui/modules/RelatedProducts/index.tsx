@@ -22,47 +22,39 @@ const products = [rp0, rp1, rp2, rp3, rp4, rp0, rp1, rp2, rp3, rp4];
 
 const RelatedProducts: React.FC = () => {
   return (
-    <Box
-      component="section"
-      id="Сопутствующие_товары"
-      className={styles.wrapper}
-    >
-      <Box className={styles.root}>
-        <Typography fontWeight={700} variant="h2">
-          Сопутствующие товары
+    <Box component="section" id="Сопутствующие_товары" className={styles.root}>
+      <Typography fontWeight={700} variant="h2">
+        Сопутствующие товары
+      </Typography>
+      <Swiper className={styles.slider} slidesPerView={5} loop>
+        {products.map((src, i) => (
+          <SwiperSlide className={styles.slide} key={i}>
+            <Image src={src} alt="Сопутствующий товар" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Box className={styles.parts}>
+        <Typography color="primary" fontWeight={700} variant="h2">
+          Мы можем изготовить запасные части по вашим размерам
         </Typography>
-        <Swiper className={styles.slider} slidesPerView={5} loop>
-          {products.map((src, i) => (
-            <SwiperSlide className={styles.slide} key={i}>
-              <Image src={src} alt="Сопутствующий товар" />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Box className={styles.parts}>
-          <Typography color="primary" fontWeight={700} variant="h2">
-            Мы можем изготовить запасные части по вашим размерам
-          </Typography>
-          {["Собственное производство", "Собственные конструкторы"].map(
-            (title, i) => (
-              <Box className={styles.benefit} key={i}>
-                <Icon size={64}>
-                  <CheckRoundedIcon />
-                </Icon>
-                <Typography variant="h4">{title}</Typography>
-              </Box>
-            )
-          )}
-        </Box>
-        <Box className={styles.download}>
-          <Typography variant="h4">
-            Скачайте перечень запасных частей
-          </Typography>
-          <a href={`${SERVER_URL}/api/files/partsList`}>
-            <Button typographyProps={{ fontWeight: 400, variant: "body2" }}>
-              Скачать
-            </Button>
-          </a>
-        </Box>
+        {["Собственное производство", "Собственные конструкторы"].map(
+          (title, i) => (
+            <Box className={styles.benefit} key={i}>
+              <Icon size={64}>
+                <CheckRoundedIcon />
+              </Icon>
+              <Typography variant="h4">{title}</Typography>
+            </Box>
+          )
+        )}
+      </Box>
+      <Box className={styles.download}>
+        <Typography variant="h4">Скачайте перечень запасных частей</Typography>
+        <a href={`${SERVER_URL}/api/files/partsList`}>
+          <Button typographyProps={{ fontWeight: 400, variant: "body2" }}>
+            Скачать
+          </Button>
+        </a>
       </Box>
     </Box>
   );

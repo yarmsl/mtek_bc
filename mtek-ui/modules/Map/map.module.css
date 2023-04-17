@@ -1,0 +1,29 @@
+.root {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  position: relative;
+}
+
+.root * {
+  outline: none;
+  border: none;
+}
+
+.root > a {
+  color: #eee;
+  font-size: 12px;
+  position: absolute;
+}
+
+.root > a:first-child {
+  top: 0;
+}
+
+.root > a:last-child {
+  top: 14px;
+}
+
+.root > iframe {
+  position: relative;
+}

@@ -16,20 +16,21 @@ import { RefInfoService } from '../refInfo/refInfo.service';
       imports: [RefInfoModule],
       inject: [RefInfoService],
       useFactory: async (refInfoService: RefInfoService) => {
-        const refInfo = await refInfoService.readRefInfo();
+        const { send_mail, send_mail_password, get_mail } =
+          await refInfoService.readRefInfo();
         return {
           transport: {
             service: process.env.NODEMAILER_SERVICE,
             secure: true,
 
             auth: {
-              user: refInfo?.send_mail,
-              pass: atob(refInfo?.send_mail_password || ''),
+              user: send_mail,
+              pass: atob(send_mail_password),
             },
           },
           defaults: {
-            to: refInfo?.get_mail,
-            from: refInfo?.send_mail,
+            to: get_mail,
+            from: send_mail,
           },
           template: {
             dir: join(__dirname, 'templates'),

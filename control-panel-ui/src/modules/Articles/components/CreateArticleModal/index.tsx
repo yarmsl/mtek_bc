@@ -138,6 +138,7 @@ const CreateArticleModal: React.FC = () => {
         <TextField label='Заголовок' name='title' variant='standard' required />
         <TextField
           label='Статья'
+          maxLength={2000}
           maxRows={6}
           minRows={6}
           name='text'

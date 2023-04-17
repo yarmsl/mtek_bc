@@ -1,0 +1,16 @@
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  flex-direction: column;
+}
+
+.root > div:not(:last-of-type) {
+  margin-bottom: 64px;
+}
+
+.root > div:nth-child(even) {
+  flex-direction: row-reverse;
+}

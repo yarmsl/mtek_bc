@@ -69,29 +69,18 @@ const Button: React.FC<IButtonProps> = ({
           className={clsx(
             styles.typography,
             iconAside && styles.iconAside,
-            typographyProps?.className && typographyProps?.className
+            typographyProps?.className
           )}
         >
           {icon ? (
             <Icon
               {...{ ...initialIconProps, ...iconProps }}
-              className={clsx(
-                styles.icon,
-                iconProps?.className && iconProps?.className
-              )}
+              className={clsx(styles.icon, iconProps?.className)}
             >
               {icon}
             </Icon>
           ) : null}
           {children}
-          {iconAside ? (
-            <span
-              style={{
-                width: `${iconProps?.size}px`,
-                minWidth: `${iconProps?.size}px`,
-              }}
-            />
-          ) : null}
         </Typography>
       </Ripple>
     </button>

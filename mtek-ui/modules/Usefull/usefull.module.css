@@ -1,0 +1,49 @@
+.root {
+  max-width: var(--max-width);
+  width: 100%;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  display: flex;
+  flex-direction: column;
+  scroll-margin-block-start: 130px;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.infotext {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.ufwrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card > *:not(:last-child) {
+  margin-bottom: 15px;
+}

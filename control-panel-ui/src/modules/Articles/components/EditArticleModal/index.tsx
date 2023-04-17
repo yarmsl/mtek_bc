@@ -138,7 +138,15 @@ const EditArticleModal: React.FC<IEditArticleModalProps> = ({ id }) => {
         <Button onClick={() => inputRef?.current?.click()}>Загрузить изображение</Button>
 
         <TextField label='Заголовок' name='title' variant='standard' />
-        <TextField label='Статья' maxRows={6} minRows={6} name='text' variant='filled' multiline />
+        <TextField
+          label='Статья'
+          maxLength={2000}
+          maxRows={6}
+          minRows={6}
+          name='text'
+          variant='filled'
+          multiline
+        />
         <Button color='info' type='submit' variant='contained' onClick={handleSubmit(handleSave)}>
           Сохранить
         </Button>

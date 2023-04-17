@@ -59,11 +59,11 @@
 }
 
 .icon {
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .iconAside {
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 @media (hover: hover) and (pointer: fine) {

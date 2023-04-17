@@ -27,7 +27,10 @@ export class RefInfoService {
 
   async readRefInfo() {
     try {
-      return await this.refInfoRepository.findOne();
+      const refInfo = await this.refInfoRepository.findOne();
+      if (!refInfo) return await this.refInfoRepository.create();
+
+      return refInfo;
     } catch (e) {
       throw new HttpException(
         (e instanceof Error && e.message) ||

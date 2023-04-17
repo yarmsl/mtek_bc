@@ -7,16 +7,14 @@ import { aboutItemsConfig } from "./config";
 
 const About: React.FC = () => {
   return (
-    <Box component="section" id="О_компании" className={styles.wrapper}>
-      <Box className={styles.root}>
-        <Typography fontWeight={700} variant="h2">
-          О компании
-        </Typography>
-        <Box className={styles.abouts}>
-          {aboutItemsConfig.map((about, i) => (
-            <AboutItem key={i} {...about} />
-          ))}
-        </Box>
+    <Box component="section" id="О_компании" className={styles.root}>
+      <Typography fontWeight={700} variant="h2">
+        О компании
+      </Typography>
+      <Box className={styles.abouts}>
+        {aboutItemsConfig.map((about, i) => (
+          <AboutItem key={i} {...about} />
+        ))}
       </Box>
     </Box>
   );
