@@ -17,6 +17,10 @@
   margin-bottom: 0;
 }
 
+.icon {
+  width: 34px;
+}
+
 @media (max-width: 1025px) {
   .root {
     flex-direction: column;
@@ -25,5 +29,9 @@
   .root > *:not(:last-of-type) {
     margin-right: 0;
     margin-bottom: 10px;
+  }
+
+  .icon {
+    width: 18px;
   }
 }

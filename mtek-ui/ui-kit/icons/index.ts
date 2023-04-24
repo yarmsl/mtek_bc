@@ -36,3 +36,6 @@ export * from "./BagIcon";
 export * from "./PocketIcon";
 export * from "./CheckRoundedIcon";
 export * from "./DownloadIcon";
+export * from "./BurgerIcon";
+export * from "./EntranceIcon";
+export * from "./CrossIcon";

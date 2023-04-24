@@ -12,9 +12,13 @@ const btns = [
   { label: "Реквизиты компании", href: "companyDetails" },
 ];
 
-const DownloadFiles: React.FC = () => {
+interface IDownloadFilesProps {
+  isMobile: boolean;
+}
+
+const DownloadFiles: React.FC<IDownloadFilesProps> = ({ isMobile }) => {
   return (
-    <Box component="section" className={styles.root}>
+    <Box component="section" id="Загружаемые_файлы" className={styles.root}>
       <Typography variant="h2" fontWeight={700}>
         Загружаемые файлы
       </Typography>
@@ -27,9 +31,9 @@ const DownloadFiles: React.FC = () => {
               icon={<DownloadIcon />}
               iconAside
               variant="text"
-              size="large"
+              size={isMobile ? "small" : "large"}
               typographyProps={{ fontWeight: 700 }}
-              iconProps={{ size: 32 }}
+              iconProps={{ size: isMobile ? 16 : 32 }}
             >
               {label}
             </Button>

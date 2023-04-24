@@ -40,3 +40,9 @@
   height: 16px;
   color: rgb(255 60 60);
 }
+
+@media (max-width: 1025px) {
+  .root {
+    display: none;
+  }
+}

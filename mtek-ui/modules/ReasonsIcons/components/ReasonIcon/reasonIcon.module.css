@@ -10,3 +10,39 @@
 .root > div:first-child {
   margin-bottom: 10px;
 }
+
+.icon {
+  height: 100px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 1025px) {
+  .root {
+    flex-direction: row;
+    max-width: 100%;
+  }
+
+  .root > div:first-child {
+    margin-bottom: 0;
+  }
+
+  .icon {
+    width: 50px;
+    min-width: 50px;
+    height: auto;
+    margin-right: 22px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}

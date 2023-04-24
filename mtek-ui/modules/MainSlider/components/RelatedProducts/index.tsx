@@ -17,6 +17,7 @@ const RelatedProducts: React.FC = () => {
           variant="h2"
           fontWeight={900}
           textTransform="uppercase"
+          className={styles.title}
         >
           Сопутствующие товары
         </Typography>

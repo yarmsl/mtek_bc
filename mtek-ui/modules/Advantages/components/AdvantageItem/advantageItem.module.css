@@ -13,3 +13,13 @@
   max-width: 212px;
   text-align: center;
 }
+
+.icon {
+  height: 100px;
+}
+
+@media (max-width: 1025px) {
+  .icon {
+    height: 50px;
+  }
+}

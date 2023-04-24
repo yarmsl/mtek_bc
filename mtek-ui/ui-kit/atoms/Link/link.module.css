@@ -3,8 +3,10 @@
   transition: color 150ms ease-in-out;
 }
 
-.root:hover {
-  color: rgb(var(--primary));
-  text-decoration: underline;
-  cursor: pointer;
+@media (hover: hover) and (pointer: fine) {
+  .root:hover {
+    color: rgb(var(--primary));
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

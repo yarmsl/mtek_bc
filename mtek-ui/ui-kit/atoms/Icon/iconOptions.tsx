@@ -37,6 +37,9 @@ import {
   DownloadIcon,
   Lorry3Icon,
   Lorry4Icon,
+  BurgerIcon,
+  CrossIcon,
+  EntranceIcon,
 } from "@/ui-kit/icons";
 
 export const iconOptions = {
@@ -46,6 +49,9 @@ export const iconOptions = {
   ChevronIcon: <ChevronIcon />,
   PageIcon: <PageIcon />,
   DownloadIcon: <DownloadIcon />,
+  EntranceIcon: <EntranceIcon />,
+  BurgerIcon: <BurgerIcon />,
+  CrossIcon: <CrossIcon />,
   DashboardIcon: <DashboardIcon />,
   PresIcon: <PresIcon />,
   PersonIcon: <PersonIcon />,

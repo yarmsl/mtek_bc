@@ -10,12 +10,14 @@ interface ICommunicationsButtonsProps {
   isPersonalArea: boolean;
   personalAreaLink: string;
   managerPhoneNumber: string;
+  isMobile: boolean;
 }
 
 const CommunicationsButtons: React.FC<ICommunicationsButtonsProps> = ({
   isPersonalArea,
   personalAreaLink,
   managerPhoneNumber,
+  isMobile,
 }) => {
   return (
     <Box component="section" className={styles.root}>
@@ -28,9 +30,9 @@ const CommunicationsButtons: React.FC<ICommunicationsButtonsProps> = ({
         >
           <Button
             icon={<PersonIcon />}
-            iconAside
-            iconProps={{ size: 34 }}
-            size="large"
+            iconAside={!isMobile}
+            iconProps={{ size: "fullsize", className: styles.icon }}
+            size={isMobile ? "small" : "large"}
             shadow={5}
             variant="text"
             fullWidth
@@ -43,9 +45,9 @@ const CommunicationsButtons: React.FC<ICommunicationsButtonsProps> = ({
       <a href={`tel:${managerPhoneNumber}`}>
         <Button
           icon={<HeadsetIcon />}
-          iconAside
-          iconProps={{ size: 34 }}
-          size="large"
+          iconAside={!isMobile}
+          iconProps={{ size: "fullsize", className: styles.icon }}
+          size={isMobile ? "small" : "large"}
           shadow={5}
           variant="text"
           fullWidth

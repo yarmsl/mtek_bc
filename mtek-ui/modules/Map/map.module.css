@@ -27,3 +27,9 @@
 .root > iframe {
   position: relative;
 }
+
+@media (max-width: 1025px) {
+  .root {
+    height: 320px;
+  }
+}

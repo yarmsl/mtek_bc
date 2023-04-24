@@ -17,6 +17,7 @@
 }
 
 .slide {
+  width: calc(100% / 5);
   height: 250px;
 }
 
@@ -52,4 +53,42 @@
 
 .download > *:not(:last-child) {
   margin-right: 25px;
+}
+
+@media (max-width: 1025px) {
+  .root {
+    padding: 0;
+  }
+
+  .root > *:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .title {
+    padding-left: 20px;
+  }
+
+  .slider {
+    height: 300px;
+  }
+
+  .slider > div {
+    display: flex;
+    align-items: center;
+  }
+
+  .slide {
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+    box-shadow: var(--shadow-1);
+    border-radius: var(--border-radius);
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  .parts,
+  .download {
+    display: none;
+  }
 }

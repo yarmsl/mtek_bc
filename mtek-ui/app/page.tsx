@@ -1,3 +1,6 @@
+import MobileDetect from "mobile-detect";
+import { headers } from "next/headers";
+
 import { apiGet } from "@/lib/api";
 import About from "@/modules/About";
 import Advantages from "@/modules/Advantages";
@@ -39,6 +42,10 @@ export default async function Home() {
 
   const longAddress = `${address_area}, ${address_city}, ${address_street} ${address_house} ${address_office}`;
   const shortAddress = `${address_city}, ${address_street} ${address_house} ${address_office}`;
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent") || "";
+  const detected = new MobileDetect(userAgent);
+  const isMobile = Boolean(detected.mobile());
 
   return (
     <>
@@ -47,6 +54,7 @@ export default async function Home() {
         personalAreaLink={personalArea_externalLink}
         isPersonalArea={personalArea_isShow}
         managerPhoneNumber={manager_phoneNumber}
+        isMobile={isMobile}
       />
       <Advantages />
       <CargoOwner />
@@ -59,7 +67,7 @@ export default async function Home() {
       <Articles articles={articles} />
       <About />
       <Partners />
-      <DownloadFiles />
+      <DownloadFiles isMobile={isMobile} />
       <Contacts
         organization={organization_name}
         inn={organization_inn}

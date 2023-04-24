@@ -7,6 +7,6 @@ export interface IIconsProps
   > {
   children: React.ReactNode;
   color?: TUiColors;
-  size?: number;
+  size?: number | "fullsize";
   className?: string;
 }

@@ -39,6 +39,9 @@ import {
   DownloadIcon,
   Lorry4Icon,
   Lorry3Icon,
+  EntranceIcon,
+  CrossIcon,
+  BurgerIcon,
 } from "@/ui-kit/icons";
 
 import { iconOptions } from "./iconOptions";
@@ -114,6 +117,27 @@ export const Download: Story = {
   args: {
     color: "primary",
     children: <DownloadIcon />,
+  },
+};
+
+export const Entrance: Story = {
+  args: {
+    color: "primary",
+    children: <EntranceIcon />,
+  },
+};
+
+export const Cross: Story = {
+  args: {
+    color: "text_common",
+    children: <CrossIcon />,
+  },
+};
+
+export const Burger: Story = {
+  args: {
+    color: "text_common",
+    children: <BurgerIcon />,
   },
 };
 

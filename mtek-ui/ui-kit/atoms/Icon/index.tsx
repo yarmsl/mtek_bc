@@ -14,7 +14,17 @@ const Icon: React.FC<IIconsProps> = ({
 }) => {
   return (
     <div
-      style={{ width: `${size}px`, height: `${size}px`, minWidth: `${size}px` }}
+      style={
+        size === "fullsize"
+          ? undefined
+          : {
+              height: `${size}px`,
+              minHeight: `${size}px`,
+              minWidth: `${size}px`,
+              width: "min-content",
+              maxWidth: "max-content",
+            }
+      }
       className={clsx(`c_${color}`, className)}
       {...rest}
     >

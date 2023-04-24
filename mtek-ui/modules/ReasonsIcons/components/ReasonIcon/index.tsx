@@ -13,11 +13,15 @@ const ReasonIcon: React.FC<IReasonIconProps> = ({
 }) => {
   return (
     <Box className={styles.root}>
-      <Icon size={100}>{icon}</Icon>
-      <Typography variant="h6" fontWeight={700} color="primary">
-        {title}
-      </Typography>
-      {description && <Typography variant="body4">{description}</Typography>}
+      <Icon className={styles.icon} size="fullsize">
+        {icon}
+      </Icon>
+      <Box className={styles.info}>
+        <Typography variant="h6" fontWeight={700} color="primary">
+          {title}
+        </Typography>
+        {description && <Typography variant="body4">{description}</Typography>}
+      </Box>
     </Box>
   );
 };

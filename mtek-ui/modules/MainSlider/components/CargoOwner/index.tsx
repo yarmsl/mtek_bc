@@ -18,6 +18,7 @@ const CargoOwner: React.FC = () => {
           variant="h2"
           fontWeight={900}
           textTransform="uppercase"
+          className={styles.title}
         >
           Грузовладельцу
         </Typography>
@@ -26,26 +27,36 @@ const CargoOwner: React.FC = () => {
           менеджер, страхование груза, возможность отсрочки платежа,
           температурный режим от -20 до +20°C.
         </Typography>
-        <Button
-          iconAside
-          icon={<Lorry3Icon />}
-          iconProps={{ size: 36, color: "primary" }}
-          size="small"
-          variant="outlined"
-          typographyProps={{ color: "text_common" }}
-        >
-          До 10 тонн рефрежираторы
-        </Button>
-        <Button
-          iconAside
-          icon={<Lorry4Icon />}
-          iconProps={{ size: 36, color: "primary" }}
-          size="small"
-          variant="outlined"
-          typographyProps={{ color: "text_common" }}
-        >
-          До 20 тонн рефрежираторы и тента
-        </Button>
+        <Box className={styles.btnsbox}>
+          <Button
+            iconAside
+            icon={<Lorry3Icon />}
+            iconProps={{ size: 20, color: "primary" }}
+            size="small"
+            variant="outlined"
+            typographyProps={{ color: "text_common", fontWeight: 400 }}
+            fullWidth
+          >
+            До 10 тонн рефрежираторы
+          </Button>
+          <Button
+            iconAside
+            icon={<Lorry4Icon />}
+            iconProps={{
+              size: 20,
+              color: "primary",
+            }}
+            size="small"
+            variant="outlined"
+            typographyProps={{
+              color: "text_common",
+              fontWeight: 400,
+            }}
+            fullWidth
+          >
+            До 20 тонн рефрежираторы и тента
+          </Button>
+        </Box>
       </Box>
       <Box className={styles.imageBox}>
         <Image
