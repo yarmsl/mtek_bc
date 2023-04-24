@@ -31,3 +31,12 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 1025px) {
+  .partners > div {
+    width: calc(100% / 2);
+    height: 80px;
+    padding: 5px;
+    margin-bottom: 40px;
+  }
+}

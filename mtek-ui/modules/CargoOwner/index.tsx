@@ -12,7 +12,9 @@ const CargoOwner: React.FC = () => {
     <Box className={styles.wrapper} component="section" id="Грузовладельцу">
       <Box className={styles.root}>
         <Box className={styles.info}>
-          <Typography variant="h2">Грузовладельцу</Typography>
+          <Typography fontWeight={500} variant="h2">
+            Грузовладельцу
+          </Typography>
           <Box className={styles.imageBoxMob}>
             <Image
               className={styles.image}

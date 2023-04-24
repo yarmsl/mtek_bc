@@ -9,7 +9,9 @@ import styles from "./aboutItem.module.css";
 const AboutItem: React.FC<IAboutItemProps> = ({ icon, title, text }) => {
   return (
     <Box shadow={3} className={styles.root}>
-      <Icon size={77}>{icon}</Icon>
+      <Icon className={styles.icon} size={77}>
+        {icon}
+      </Icon>
       <Box className={styles.info}>
         {title && (
           <Typography variant="h4" color="primary">

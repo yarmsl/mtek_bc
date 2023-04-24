@@ -1,4 +1,4 @@
-export const routes = [
+export const mobileRoutes = [
   {
     href: "#О_компании",
     label: "О компании",
@@ -20,7 +20,15 @@ export const routes = [
     label: "Полезное",
   },
   {
+    href: "#Загружаемые_файлы",
+    label: "Загружаемые файлы",
+  },
+  {
     href: "#Контакты",
     label: "Контакты",
   },
 ];
+
+export const routes = mobileRoutes.filter(
+  (r) => r.label !== "Загружаемые файлы"
+);

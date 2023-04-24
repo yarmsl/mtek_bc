@@ -24,7 +24,12 @@ const ArticleItem: React.FC<IArticleItemProps> = ({ title, text, src }) => {
         <Typography>{text}</Typography>
       </Box>
       <Box className={styles.imgBox}>
-        <Image fill src={`${SERVER_URL}/${src}`} alt={title} />
+        <Image
+          fill
+          sizes="(max-width: 780px) 100vw"
+          src={`${SERVER_URL}/${src}`}
+          alt={title}
+        />
       </Box>
     </Box>
   );

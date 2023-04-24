@@ -18,6 +18,7 @@ const VehicleOwners: React.FC = () => {
           variant="h2"
           fontWeight={900}
           textTransform="uppercase"
+          className={styles.title}
         >
           Собственникам автотранспорта
         </Typography>

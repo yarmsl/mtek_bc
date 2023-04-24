@@ -26,6 +26,20 @@ const Backdrop: React.FC<IBackdropProps> = ({
     else setShow(true);
   }, [isOpen]);
 
+  React.useEffect(() => {
+    const el = document.querySelector("html");
+    if (el && isShow) {
+      el.style.overflowY = "hidden";
+    }
+    if (el && !isShow && el.style.overflowY === "hidden")
+      el.style.overflowY = "unset";
+
+    return () => {
+      if (el && !isShow && el.style.overflowY === "hidden")
+        el.style.overflowY = "unset";
+    };
+  }, [isShow]);
+
   if (!isShow) return null;
 
   return (

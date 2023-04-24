@@ -33,3 +33,28 @@
 .nav > *:not(:last-of-type) {
   margin-right: 20px;
 }
+
+@media (max-width: 1025px) {
+  .wrapper {
+    height: auto;
+  }
+
+  .root {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+  }
+
+  .nav {
+    height: auto;
+    flex-direction: column;
+    margin: 0;
+    align-content: flex-start;
+  }
+
+  .nav > *:not(:last-of-type) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}

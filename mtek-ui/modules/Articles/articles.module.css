@@ -14,3 +14,17 @@
 .root > div:nth-child(even) {
   flex-direction: row-reverse;
 }
+
+@media (max-width: 1025px) {
+  .root > div {
+    flex-direction: column-reverse;
+  }
+
+  .root > div:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+
+  .root > div:not(:last-of-type) {
+    margin-bottom: 54px;
+  }
+}

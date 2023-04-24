@@ -14,7 +14,9 @@ interface IIAdvantageItemProps {
 const AdvantageItem: React.FC<IIAdvantageItemProps> = ({ icon, title }) => {
   return (
     <Box className={styles.root}>
-      <Icon size={100}>{icon}</Icon>
+      <Icon className={styles.icon} size="fullsize">
+        {icon}
+      </Icon>
       <Typography fontWeight={400} className={styles.title} variant={"h4"}>
         {title}
       </Typography>

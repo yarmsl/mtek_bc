@@ -23,10 +23,16 @@ const products = [rp0, rp1, rp2, rp3, rp4, rp0, rp1, rp2, rp3, rp4];
 const RelatedProducts: React.FC = () => {
   return (
     <Box component="section" id="Сопутствующие_товары" className={styles.root}>
-      <Typography fontWeight={700} variant="h2">
+      <Typography className={styles.title} fontWeight={700} variant="h2">
         Сопутствующие товары
       </Typography>
-      <Swiper className={styles.slider} slidesPerView={5} loop>
+      <Swiper
+        className={styles.slider}
+        slidesPerView={"auto"}
+        // spaceBetween={isMobile ? 30 : 0}
+        centeredSlides
+        loop
+      >
         {products.map((src, i) => (
           <SwiperSlide className={styles.slide} key={i}>
             <Image src={src} alt="Сопутствующий товар" />

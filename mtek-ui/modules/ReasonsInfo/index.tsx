@@ -70,20 +70,40 @@ const ReasonsInfo: React.FC<IReasonsInfoProps> = ({ mail, phoneNumber }) => {
       </Box>
       <Box className={styles.bid}>
         <a href="#Оставить_заявку">
-          <Button typographyProps={{ fontWeight: 400, variant: "body2" }}>
+          <Button
+            className={styles.btn}
+            typographyProps={{ fontWeight: 400, variant: "body2" }}
+          >
             Оформите заявку
           </Button>
         </a>
-        <Typography className={styles.bidInfo}>
-          Или свяжитесь с нашими менеджерами по телефону{" "}
-          <Link color="primary" href={`tel:${phoneNumber}`}>
+        <Box className={styles.bidInfo}>
+          <Typography fontWeight={500}>
+            Или свяжитесь с нашими менеджерами по телефону{" "}
+          </Typography>
+          <Link
+            className="no_wrap desk"
+            color="primary"
+            href={`tel:${phoneNumber}`}
+          >
             {formatPhoneNumber(phoneNumber)}
-          </Link>{" "}
-          или через электронную почту{" "}
-          <Link color="primary" href={`mailto:${mail}`}>
+          </Link>
+          <a className="mob" href={`tel:${phoneNumber}`}>
+            <Button fullWidth variant="outlined">
+              {formatPhoneNumber(phoneNumber)}
+            </Button>
+          </a>
+          <br className="desk" />
+          <Typography fontWeight={500}>или через электронную почту </Typography>
+          <Link className="desk" color="primary" href={`mailto:${mail}`}>
             {mail}
           </Link>
-        </Typography>
+          <a className="mob" href={`mailto:${mail}`}>
+            <Button fullWidth variant="outlined">
+              {mail}
+            </Button>
+          </a>
+        </Box>
       </Box>
     </Box>
   );

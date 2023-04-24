@@ -19,3 +19,13 @@
 .container > *:not(:last-child) {
   margin-bottom: 100px;
 }
+
+@media (max-width: 1025px) {
+  .container {
+    margin-top: 50px;
+  }
+
+  .container > *:not(:last-child) {
+    margin-bottom: 60px;
+  }
+}
