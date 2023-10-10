@@ -44,16 +44,17 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { personalArea_externalLink, personalArea_isShow, phoneNumber } =
-    await apiGet<IRefInfo>("refInfo", { next: { revalidate: 3600 } });
+  const refInfo = await apiGet<IRefInfo>("refInfo", {
+    next: { revalidate: 3600 },
+  });
   return (
     <html lang="ru" className={formular.className}>
       <head />
       <body className={styles.root}>
         <Header
-          personalAreaLink={personalArea_externalLink}
-          isPersonalArea={personalArea_isShow}
-          phoneNumber={phoneNumber}
+          personalAreaLink={refInfo?.personalArea_externalLink || ""}
+          isPersonalArea={refInfo?.personalArea_isShow || false}
+          phoneNumber={refInfo?.phoneNumber || ""}
         />
         <Box component="main" className={styles.container}>
           {children}
