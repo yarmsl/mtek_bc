@@ -20,28 +20,16 @@ import RelatedProducts from "@/modules/RelatedProducts";
 import Usefull from "@/modules/Usefull";
 
 export default async function Home() {
-  const {
-    personalArea_externalLink,
-    personalArea_isShow,
-    address_area,
-    address_city,
-    address_street,
-    address_house,
-    address_office,
-    manager_phoneNumber,
-    phoneNumber,
-    mail,
-    organization_name,
-    organization_kpp,
-    organization_inn,
-  } = await apiGet<IRefInfo>("refInfo", { next: { revalidate: 3600 } });
+  const refInfo = await apiGet<IRefInfo>("refInfo", {
+    next: { revalidate: 3600 },
+  });
 
   const articles = await apiGet<IArticle[]>("articles", {
     next: { revalidate: 3600 },
   });
 
-  const longAddress = `${address_area}, ${address_city}, ${address_street} ${address_house} ${address_office}`;
-  const shortAddress = `${address_city}, ${address_street} ${address_house} ${address_office}`;
+  const longAddress = `${refInfo?.address_area}, ${refInfo?.address_city}, ${refInfo?.address_street} ${refInfo?.address_house} ${refInfo?.address_office}`;
+  const shortAddress = `${refInfo?.address_city}, ${refInfo?.address_street} ${refInfo?.address_house} ${refInfo?.address_office}`;
   const headersList = headers();
   const userAgent = headersList.get("user-agent") || "";
   const detected = new MobileDetect(userAgent);
@@ -49,31 +37,37 @@ export default async function Home() {
 
   return (
     <>
-      <MainSlider shortAddress={shortAddress} phoneNumber={phoneNumber} />
+      <MainSlider
+        shortAddress={shortAddress}
+        phoneNumber={refInfo?.phoneNumber || ""}
+      />
       <CommunicationsButtons
-        personalAreaLink={personalArea_externalLink}
-        isPersonalArea={personalArea_isShow}
-        managerPhoneNumber={manager_phoneNumber}
+        personalAreaLink={refInfo?.personalArea_externalLink || ""}
+        isPersonalArea={refInfo?.personalArea_isShow || false}
+        managerPhoneNumber={refInfo?.manager_phoneNumber || ""}
         isMobile={isMobile}
       />
       <Advantages />
       <CargoOwner />
       <DeliveryBanner />
       <ReasonsIcons />
-      <ReasonsInfo mail={mail} phoneNumber={phoneNumber} />
+      <ReasonsInfo
+        mail={refInfo?.mail || ""}
+        phoneNumber={refInfo?.phoneNumber || ""}
+      />
       <RelatedProducts />
       <Feedback />
       <Usefull />
-      <Articles articles={articles} />
+      <Articles articles={articles || []} />
       <About />
       <Partners />
       <DownloadFiles isMobile={isMobile} />
       <Contacts
-        organization={organization_name}
-        inn={organization_inn}
-        kpp={organization_kpp}
-        phone={phoneNumber}
-        mail={mail}
+        organization={refInfo?.organization_name}
+        inn={refInfo?.organization_inn}
+        kpp={refInfo?.organization_kpp}
+        phone={refInfo?.phoneNumber}
+        mail={refInfo?.mail}
         address={longAddress}
       />
       <Map />
