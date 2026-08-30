@@ -1,0 +1,21 @@
+.root {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.text {
+    text-align: justify;
+}
+
+.actions {
+    flex-shrink: 1;
+
+
+}
+
+@media (max-width: 1400px) {
+  .root {
+    flex-direction: column;
+  }
+}

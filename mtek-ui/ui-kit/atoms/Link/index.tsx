@@ -1,3 +1,5 @@
+import React, { forwardRef } from "react";
+
 import clsx from "clsx";
 
 import { TUiColors } from "@/ui-kit/types";
@@ -23,25 +25,35 @@ interface ILinkProps
     | "h6";
 }
 
-const Link: React.FC<ILinkProps> = ({
-  color = "text_common",
-  fontWeight = 400,
-  variant = "body",
-  className,
-  ...rest
-}) => {
-  return (
-    <a
-      className={clsx(
-        `fw_${fontWeight}`,
-        `c_${color}`,
-        `${variant}`,
-        styles.root,
-        className
-      )}
-      {...rest}
-    />
-  );
-};
+// Оборачиваем компонент в forwardRef
+const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
+  (
+    {
+      color = "text_common",
+      fontWeight = 400,
+      variant = "body",
+      className,
+      ...rest
+    },
+    ref, // Пробрасываем ref вторым аргументом
+  ) => {
+    return (
+      <a
+        ref={ref} // Обязательно передаем ref на тег <a>
+        className={clsx(
+          `fw_${fontWeight}`,
+          `c_${color}`,
+          `${variant}`,
+          styles.root,
+          className,
+        )}
+        {...rest}
+      />
+    );
+  },
+);
+
+// Задаем displayName, так как этого требует ESLint при использовании forwardRef
+Link.displayName = "UiLink";
 
 export default Link;

@@ -1,0 +1,44 @@
+.root {
+  position: absolute;
+  height: auto;
+  max-width: 90%;
+  background-color: rgb(255 255 255 / 85%);
+  opacity: 1;
+  animation: 250ms appear ease-in-out;
+  transition: opacity 250ms ease-in-out;
+  border-radius: var(--border-radius);
+  padding: 14px;
+}
+
+.default {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+
+.bottom {
+  bottom: 1%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.close {
+  opacity: 0;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .root {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--max-width);
+  padding-right: var(--pad);
+  padding-left: var(--pad);
+  gap: 14px;
+}
+
+.list li {
+  list-style-type: none;
+  text-align: justify;
+}
+
+.list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.list > ul > li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
