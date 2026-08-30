@@ -1,6 +1,7 @@
 import MobileDetect from "mobile-detect";
 import { headers } from "next/headers";
 
+import CookieBanner from "@/components/CookieBanner";
 import { apiGet } from "@/lib/api";
 import About from "@/modules/About";
 import Advantages from "@/modules/Advantages";
@@ -71,6 +72,7 @@ export default async function Home() {
         address={longAddress}
       />
       <Map />
+      <CookieBanner />
     </>
   );
 }

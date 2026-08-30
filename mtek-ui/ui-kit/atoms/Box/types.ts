@@ -5,6 +5,14 @@ export interface IBoxProps
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  component?: "div" | "section" | "main" | "header" | "nav" | "menu" | "footer";
+  component?:
+    | "div"
+    | "section"
+    | "main"
+    | "header"
+    | "nav"
+    | "menu"
+    | "footer"
+    | "pre";
   shadow?: TUiShadows;
 }

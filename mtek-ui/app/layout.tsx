@@ -47,6 +47,7 @@ export default async function RootLayout({
   const refInfo = await apiGet<IRefInfo>("refInfo", {
     next: { revalidate: 3600 },
   });
+
   return (
     <html lang="ru" className={formular.className}>
       <head />
